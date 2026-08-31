@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WARKOP AJO ERI</title>
+</head>
+
+<body>
+    <h1>WARKOP AJO ERI</h1> 
+    <h2>JANGAN LUPA BELI</h2> 
+    <p>TAMPEK MAKAN<br>GAS<strong> BALI!!!!</strong>DIAKKK</p>
+ <h3>Menu dan Fasilitas</h3> 
+    <ol type="1">     
+        <li>Nasi Goreng</li>    
+        <li>Domino dan Koa</li>
+    </ol> <!-- Media Gambar --> 
+    <figure>     
+    <img src="warkop.jpeg" class="warkop" alt="Foto warkop" width="350">
+        <figcaption>Foto warkop</figcaption> 
+    </figure> 
+     <!-- Hyperlink -->
+    <p>Lokasi tempat: <a href="https://maps.app.goo.gl/BdvTnnSXjxgD4fwa7" target="_blank">Buka Peta Lokasi</a></p>
+<section id="Jadwal Buka Warkop">
+    <h3>Jadwal Buka Warkop</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Hari</th>
+                <th>Waktu</th>
+                <th>keterangan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Senin-Sabtu</td>
+                <td>08.00 - 22.00</td>
+                <td>Buka</td>
+            </tr>
+            <tr>
+                <td>Minggu</td>
+                <td>19.00 - 03.00</td>
+                <td>Buka</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Section Form pemesanan -->
+<section id="rsvp-massa">
+    <h3>Konfirmasi Pemesanan</h3>
+    <form action="/proses-pemesanan" method="POST">
+        <label for="nama">Nama Makanan / Minuman:</label><br>
+        <input type="text" id="nama" name="nama_massa" placeholder="Masukkan Pesanan kamu" required><br><br>
+
+        <label>Status Pemesanan:</label><br>
+        <input type="radio" id="sudah" name="Pemesanan" value="sudah" checked>
+        <label for="sudah">Sudah dibuat</label>
+        <input type="radio" id="belum" name="Pemesanan" value="belum">
+        <label for="belum">Lagi dibuat</label><br><br>
+    </form>
+</section>
+        <label for="Request">Request Pemesanan:</label><br>
+        <textarea id="Request" name="Req" rows="3" cols="30" placeholder="Ketik Request disini"></textarea><br><br>
+
+        <input type="submit" value="Kirim">
+    </form>
+</section>    
+</body>
+
+</html>
