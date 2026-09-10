@@ -10,6 +10,7 @@
 
 body{
     background-color: #fff;
+    font-family: "Poppins", sans-serif;
 }
 
 .app{
@@ -40,7 +41,7 @@ body{
 
 .marquee span{
     display: inline-block;
-    animation: jalan 3s linear infinite;
+    animation: jalan 8s linear infinite;
 }
 
 .sidebar{
@@ -62,9 +63,15 @@ body{
     border:none;
     margin-bottom:2rem;
     flex-shrink:0;
+    background: transparent;
   }
 
-.sidebar-logo img{ width:100%; height:100%; object-fit:cover; }
+.sidebar-logo img{ 
+  width:1000%; 
+  height:151%; 
+  object-fit:contain;
+  background: transparent; 
+  }
 
   .nav-list{
     list-style:none;

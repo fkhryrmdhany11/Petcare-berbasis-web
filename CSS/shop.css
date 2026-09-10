@@ -1,0 +1,240 @@
+/* =====================================================
+   SHOP.CSS
+   CSS KHUSUS HALAMAN SHOP
+   Tidak mengubah Style.css lama dan tidak mengubah main.css.
+   ===================================================== */
+
+.shop-page {
+  background: #eef6fd;
+  min-height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.shop-catalog {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.shop-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+
+.shop-eyebrow {
+  color: #4988c4;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 5px;
+}
+
+.shop-heading h2 {
+  color: #0f2854;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.shop-subtitle {
+  color: #61708f;
+  font-size: 0.96rem;
+  line-height: 1.65;
+  max-width: 650px;
+}
+
+/* Input radio disembunyikan karena label dipakai sebagai tombol filter. */
+.filter-control {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.shop-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.shop-filters label {
+  padding: 9px 20px;
+  border-radius: 999px;
+  background: #dceafa;
+  color: #52639a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s ease;
+  user-select: none;
+}
+
+.shop-filters label:hover {
+  transform: translateY(-1px);
+  background: #cde2f7;
+}
+
+/* Memberi warna aktif pada kategori yang dipilih. */
+#filter-semua:checked ~ .shop-filters label[for="filter-semua"],
+#filter-makanan:checked ~ .shop-filters label[for="filter-makanan"],
+#filter-mainan:checked ~ .shop-filters label[for="filter-mainan"],
+#filter-perawatan:checked ~ .shop-filters label[for="filter-perawatan"] {
+  background: #1c4d8d;
+  color: #ffffff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 360px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 40, 84, 0.04);
+  border-radius: 22px;
+  box-shadow: 0 10px 28px rgba(15, 40, 84, 0.09);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(15, 40, 84, 0.14);
+}
+
+.product-image {
+  height: 185px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px 4px;
+  overflow: hidden;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.product-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 12px 18px 18px;
+}
+
+.product-info h3 {
+  color: #0f2854;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.product-category,
+.product-description {
+  color: #52639a;
+  line-height: 1.55;
+}
+
+.product-category {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-description {
+  font-size: 0.92rem;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.product-price {
+  color: #0f2854;
+  font-size: 1.35rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cart-button {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #bde8f5;
+  color: #0f2854;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.cart-button:hover {
+  transform: scale(1.06);
+  background: #a8deef;
+}
+
+/* Filter produk tanpa JavaScript. */
+#filter-makanan:checked ~ .product-grid .product-card:not(.makanan),
+#filter-mainan:checked ~ .product-grid .product-card:not(.mainan),
+#filter-perawatan:checked ~ .product-grid .product-card:not(.perawatan) {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 800px) {
+  .shop-page {
+    padding: 1.4rem;
+  }
+
+  .shop-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .shop-filters {
+    gap: 8px;
+  }
+
+  .shop-filters label {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    min-height: 335px;
+  }
+}
