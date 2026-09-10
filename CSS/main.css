@@ -54,8 +54,8 @@ body{
 }
 
 .sidebar-logo{
-    width:72px; height:72px;
-    border-radius:50%;
+    width:90px; height:90px;
+    background: transparent;
     display:flex; align-items:center; justify-content:center;
     cursor:pointer;
     overflow:hidden;
@@ -132,22 +132,65 @@ body{
     line-height:1.5;
   }
 
-  /* ================= CONTENT SLOT ================= */
   .page-content{
     grid-area: content;
     padding:2rem;
     background:#fff;
   }
 
-  /* Placeholder helper (delete on real pages) */
-  .content-placeholder{
-    border:2px dashed #cbd5e1;
-    border-radius: var(--radius);
-    padding:3rem 1.5rem;
-    text-align:center;
-    color:#64748b;
-    font-weight:600;
+  .sub-title{
+    font-family: "Inter", sans-serif;
   }
+
+  .menu-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+
+  .menu-card {
+    margin-top: 20px;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+    cursor: pointer;
+  }
+
+  .menu-card img{
+    width: 60px;
+    height: 60px;
+    justify-content: left;
+    object-fit: contain;
+    margin-right: 15px;
+  }
+
+  .menu-card h3 {
+    font-family: "Fredoka", sans-serif;
+}
+
+
+.adopt {
+    background-color: #FFD6D6;
+}
+
+.shop {
+    background-color: #D6E8FF;
+}
+
+.health {
+    background-color: #D8F5D0;
+}
+
+.vaksin {
+    background-color: #E8D9FF;
+}
+
+ 
 
   @media (max-width: 800px){
     .app, .app.sidebar-collapsed{
