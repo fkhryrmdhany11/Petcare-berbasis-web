@@ -66,59 +66,32 @@
       </header>
 
       <main class="page-content adoption-page">
-        <section class="adoption-title">
-          <h2>Kategori Hewan</h2>
+    <section class="category-list">
+  <button class="category-card active" type="button" data-filter="all">
+    <div class="category-icon">🐾</div>
+    <h3>Semua</h3>
+  </button>
 
-        </section>
-        <!-- KATEGORI -->
-        <section class="category-list">
-          <!-- KUCING -->
-          <div class="category-card">
-            <div class="category-icon">
-              🐱
-            </div>
-            <h3>Kucing</h3>
+  <button class="category-card" type="button" data-filter="kucing">
+    <div class="category-icon">🐱</div>
+    <h3>Kucing</h3>
+  </button>
 
-          </div>
+  <button class="category-card" type="button" data-filter="anjing">
+    <div class="category-icon">🐶</div>
+    <h3>Anjing</h3>
+  </button>
 
+  <button class="category-card" type="button" data-filter="kelinci">
+    <div class="category-icon">🐰</div>
+    <h3>Kelinci</h3>
+  </button>
 
-          <!-- ANJING -->
-          <div class="category-card">
-
-            <div class="category-icon">
-              🐶
-            </div>
-
-            <h3>Anjing</h3>
-
-          </div>
-
-
-          <!-- KELINCI -->
-          <div class="category-card">
-
-            <div class="category-icon">
-              🐰
-            </div>
-
-            <h3>Kelinci</h3>
-
-          </div>
-
-
-          <!-- HAMSTER -->
-          <div class="category-card">
-
-            <div class="category-icon">
-              🐹
-            </div>
-
-            <h3>Lainnya</h3>
-
-          </div>
-
-
-        </section>
+  <button class="category-card" type="button" data-filter="lainnya">
+    <div class="category-icon">🐹</div>
+    <h3>Lainnya</h3>
+  </button>
+</section>
 
 
         <!-- TEMUKAN TEMAN -->
@@ -133,7 +106,7 @@
 
 
             <!-- CICI -->
-            <div class="pet-card">
+            <div class="pet-card" data-category="kucing">
 
               <div class="pet-photo">
 
@@ -161,7 +134,7 @@
 
 
             <!-- JENO -->
-            <div class="pet-card">
+            <div class="pet-card" data-category="lainnya">
 
               <div class="pet-photo">
 
@@ -189,7 +162,7 @@
 
 
             <!-- NONA -->
-            <div class="pet-card">
+            <div class="pet-card" data-category="kucing">
 
               <div class="pet-photo">
 
@@ -216,7 +189,7 @@
             </div>
 
 
-            <div class="pet-card">
+            <div class="pet-card" data-category="kelinci">
 
               <div class="pet-photo">
 
@@ -252,7 +225,7 @@
 <footer class="site-footer">
   <div class="footer-top">
     <div class="footer-brand">
-      <img src="assets/img/logo.png" alt="PawPaw Logo" class="footer-logo">
+      <img src="../assets/img/logo.png" alt="PawPaw Logo" class="footer-logo">
       <p>Sahabat terbaik hewan peliharaan Anda. Adopsi, rawat, dan jaga kesehatan si bulu dengan mudah.</p>
     </div>
 
@@ -290,6 +263,6 @@
 
     <!-- JS SAMA DENGAN INDEX -->
     <script src="../JS/main.js"></script>
-
+<script src="../JS/adoption.js"></script>
   </body>
 </html>
