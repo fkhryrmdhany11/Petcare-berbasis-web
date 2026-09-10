@@ -1,29 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Service Dashboard</title>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- File CSS -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../CSS/main.css" />
     <link rel="stylesheet" href="../CSS/health-services.css">
-</head>
-<body>
-
-    <div class="dashboard-container">
-        <!-- Sidebar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
+    <title>PawPaw Pet Care</title>
+    </head>
+    <body>
+      <div class="app" id="app">
+        <!--ini marquee buat semua halaman-->
+        <div class="marquee">
+          <span> 🐾 50+ Adopsi Setiap Bulan - Jadwalkan Vaksin Kapan Saja - Semua Item Toko Diskon 25% 🐾 </span>
+        </div>
         <aside class="sidebar">
-            <ul class="nav-list">
-                <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
-                <li><a href="#"><i class="fas fa-paw"></i> Halaman Adopsi</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Shop</a></li>
-                <li class="active"><a href="#"><i class="fas fa-file-invoice"></i> Layanan Kesehatan</a></li>
-                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
-            </ul>
-        </aside>
+          <button class="sidebar-logo" id="sidebarToggle" title="buka/tutup menu">
+            <img src="../assets/img/logo.png" alt="logo">
+          </button>
 
-        <!-- Main Content -->
+          <ul class="nav-list">
+            <li><a href="../index.html" class="label">Beranda</span></a></li>
+            <li><a href="adoption.html"><span class="label">Adopsi</span></a></li>
+            <li><a href="shop.html"><span class="label">Toko</span></a></li>
+            <li><a href="health-services.html" class="active"><span class="label">KESEHATAN</span></a></li>
+            <li><a href="settings.html"><span class="label">Pengaturan</span></a></li>
+          </ul>
+
+          <div class="sidebar-footer">
+            ✦ 
+          </div>
+        </aside>
+        <header class="page-header">
+    <div class="mascot">
+      <img src="../assets/img/cuking.png" alt="Mascot">
+    </div>
+    <div>
+
+      <h1>PAWPAW PET CARE</h1>
+      <p>
+        Pet Care No. 1 Se-Panam 🐾<br>
+        Sahabat Terbaik Hewan Peliharaan Anda 🐾
+      </p>
+    </div>
+  </header>
+  <!-- MULAI NGODING DISINI YAAAAAAA -->
+  <main class="page-content">
+    <!-- Main Content -->
         <main class="main-content">
             <h1 class="header-title">HEALTH SERVICE</h1>
 
@@ -109,6 +134,43 @@
             </section>
         </main>
     </div>
+  </main>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/img/logo.png" alt="PawPaw Logo" class="footer-logo">
+      <p>Sahabat terbaik hewan peliharaan Anda. Adopsi, rawat, dan jaga kesehatan si bulu dengan mudah.</p>
+    </div>
 
-</body>
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <p>📍 Jl. Panam Raya No. 12, Pekanbaru</p>
+      <p>📞 0812-3456-7890</p>
+      <p>✉️ hello@pawpawpetcare.id</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Jam Operasional</h4>
+      <p>Senin - Sabtu: 08.00 - 20.00</p>
+      <p>Minggu: 09.00 - 17.00</p>
+      <p>Layanan darurat: 24 Jam</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ikuti Kami</h4>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 PawPaw Pet Care. All rights reserved.</p>
+  </div>
+</footer>
+      </div>
+      <script src="JS/main.js"></script>
+    </body>
 </html>

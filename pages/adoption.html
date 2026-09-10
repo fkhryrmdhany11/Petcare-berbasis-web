@@ -3,20 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- CSS UTAMA DARI TEMAN -->
     <link rel="stylesheet" href="../CSS/main.css" />
-
-    <!-- CSS KHUSUS HALAMAN ADOPTION -->
     <link rel="stylesheet" href="../CSS/adoption.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32;100..900;1,14..32;100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
 
     <title>PawPaw Pet Care</title>
   </head>
@@ -33,61 +24,23 @@
       </div>
 
 
-      <!-- SIDEBAR SAMA DENGAN INDEX -->
-      <aside class="sidebar">
+     <aside class="sidebar">
+          <button class="sidebar-logo" id="sidebarToggle" title="buka/tutup menu">
+            <img src="../assets/img/logo.png" alt="logo">
+          </button>
 
-        <button
-          class="sidebar-logo"
-          id="sidebarToggle"
-          title="buka/tutup menu">
+          <ul class="nav-list">
+            <li><a href="../index.html"><span class="label">Beranda</span></a></li>
+            <li><a href="adoption.html" class="active"><span class="label">Adopsi</span></a></li>
+            <li><a href="shop.html"><span class="label">Toko</span></a></li>
+            <li><a href="health-services.html"><span class="label">Kesehatan</span></a></li>
+            <li><a href="pages/settings.html"><span class="label">Pengaturan</span></a></li>
+          </ul>
 
-          <img
-            src="../assets/img/logo.png"
-            alt="logo">
-
-        </button>
-
-
-        <ul class="nav-list">
-
-          <li>
-            <a href="../index.html">
-              <span class="label">Beranda</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="adoption.html" class="active">
-              <span class="label">Adopsi</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="shop.html">
-              <span class="label">Toko</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="health-services.html">
-              <span class="label">Kesehatan</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="settings.html">
-              <span class="label">Pengaturan</span>
-            </a>
-          </li>
-
-        </ul>
-
-
-        <div class="sidebar-footer">
-          ✦ <span class="label">Log Out</span>
-        </div>
-
-      </aside>
+          <div class="sidebar-footer">
+            ✦ 
+          </div>
+        </aside>
 
 
       <!-- HEADER -->
@@ -112,30 +65,18 @@
 
       </header>
 
-
-      <!-- MULAI CODING ADOPTION -->
       <main class="page-content adoption-page">
-
-
-        <!-- JUDUL -->
         <section class="adoption-title">
-
           <h2>Kategori Hewan</h2>
 
         </section>
-
-
         <!-- KATEGORI -->
         <section class="category-list">
-
-
           <!-- KUCING -->
           <div class="category-card">
-
             <div class="category-icon">
               🐱
             </div>
-
             <h3>Kucing</h3>
 
           </div>
@@ -172,7 +113,7 @@
               🐹
             </div>
 
-            <h3>Hamster</h3>
+            <h3>Lainnya</h3>
 
           </div>
 
@@ -197,16 +138,16 @@
               <div class="pet-photo">
 
                 <img
-                  src="../assets/img/cici.png"
+                  src="../assets/img/anggora.jpg"
                   alt="Cici">
 
               </div>
 
               <div class="pet-detail">
 
-                <p>Nama: Cici</p>
+                <p>Nama: Siti</p>
                 <p>Ras: Anggora</p>
-                <p>Umur: 6 Bulan</p>
+                <p>Umur: 1 tahun </p>
                 <p>Status: Available</p>
 
                 <!-- BUTTON ADOPSI -->
@@ -225,7 +166,7 @@
               <div class="pet-photo">
 
                 <img
-                  src="../assets/img/jeno.png"
+                  src="../assets/img/goat.jpg"
                   alt="Jeno">
 
               </div>
@@ -233,8 +174,8 @@
               <div class="pet-detail">
 
                 <p>Nama: Jeno</p>
-                <p>Ras: Bengala</p>
-                <p>Umur: 9 Bulan</p>
+                <p>Ras: African Pygmy</p>
+                <p>Umur: 8 Bulan</p>
                 <p>Status: Available</p>
 
                 <!-- BUTTON ADOPSI -->
@@ -253,16 +194,16 @@
               <div class="pet-photo">
 
                 <img
-                  src="../assets/img/nona.png"
+                  src="../assets/img/bengal.jpg"
                   alt="Nona">
 
               </div>
 
               <div class="pet-detail">
 
-                <p>Nama: Nona</p>
-                <p>Ras: Anggora</p>
-                <p>Umur: 16 Bulan</p>
+                <p>Nama: Jubariyah</p>
+                <p>Ras: Bengala</p>
+                <p>Umur: 13 Bulan</p>
                 <p>Status: Pending Adoption</p>
 
                 <!-- BUTTON NONAKTIF -->
@@ -275,21 +216,20 @@
             </div>
 
 
-            <!-- NANA -->
             <div class="pet-card">
 
               <div class="pet-photo">
 
                 <img
-                  src="../assets/img/nana.png"
-                  alt="Nana">
+                  src="../assets/img/rabbit.jpg"
+                  alt="Noe">
 
               </div>
 
               <div class="pet-detail">
 
-                <p>Nama: Nana</p>
-                <p>Ras: Domestik</p>
+                <p>Nama: Noe </p>
+                <p>Ras: Rex</p>
                 <p>Umur: 10 Bulan</p>
                 <p>Status: Available</p>
 
@@ -309,7 +249,41 @@
 
 
       </main>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="assets/img/logo.png" alt="PawPaw Logo" class="footer-logo">
+      <p>Sahabat terbaik hewan peliharaan Anda. Adopsi, rawat, dan jaga kesehatan si bulu dengan mudah.</p>
+    </div>
 
+    <div class="footer-col">
+      <h4>Kontak</h4>
+      <p>📍 Jl. Panam Raya No. 12, Pekanbaru</p>
+      <p>📞 0812-3456-7890</p>
+      <p>✉️ hello@pawpawpetcare.id</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Jam Operasional</h4>
+      <p>Senin - Sabtu: 08.00 - 20.00</p>
+      <p>Minggu: 09.00 - 17.00</p>
+      <p>Layanan darurat: 24 Jam</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ikuti Kami</h4>
+      <div class="footer-socials">
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 PawPaw Pet Care. All rights reserved.</p>
+  </div>
+</footer>
 
     </div>
 
