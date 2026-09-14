@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Service Dashboard</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- File CSS -->
+   <link rel="stylesheet" href="/CSS/health-services.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="nav-list">
+                <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
+                <li><a href="#"><i class="fas fa-paw"></i> Halaman Adopsi</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Shop</a></li>
+                <li class="active"><a href="#"><i class="fas fa-file-invoice"></i> Layanan Kesehatan</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Pengaturan</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1 class="header-title">HEALTH SERVICE</h1>
+
+            <!-- Layanan Utama -->
+            <section class="section">
+                <h2 class="section-title">Layanan Utama</h2>
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <div class="card card-green">
+                        <div class="card-icon">🩺</div>
+                        <h3 class="card-title">Booking Jadwal Periksa</h3>
+                        <p class="card-desc">Pilih dokter & waktu untuk konsultasi klinik</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="card card-blue">
+                        <div class="card-icon">💉</div>
+                        <h3 class="card-title">Jadwalkan Vaksin</h3>
+                        <p class="card-desc">Atur jadwal vaksinasi rutin untuk hewan peliharaan</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card card-purple">
+                        <div class="card-icon">🏥</div>
+                        <h3 class="card-title">Panggil Dokter Ke Rumah</h3>
+                        <p class="card-desc">Dokter kami datang ke rumah anda untuk Home Visit</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detail Appointment -->
+            <section class="section">
+                <h2 class="section-title">Detail Appoinment</h2>
+                <p class="section-subtitle">Menampilkan Riwayat/Jadwal anda</p>
+
+                <div class="appointment-container">
+                    <!-- Appointment 1 (Kucing) -->
+                    <div class="appointment-card">
+                        <div class="pet-icon-wrapper">
+                            <svg class="pet-svg" viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 22L12 8L26 16C30 14 34 14 38 16L52 8L46 22C52 28 52 38 44 44C38 48 26 48 20 44C12 38 12 28 18 22Z"/>
+                                <circle cx="24" cy="28" r="2" fill="white"/>
+                                <circle cx="40" cy="28" r="2" fill="white"/>
+                                <path d="M32 32L30 35H34L32 32Z"/>
+                                <path d="M26 38C28 40 36 40 38 38"/>
+                            </svg>
+                        </div>
+                        <div class="appt-info">
+                            <p><strong>Nama hewan:</strong> Agus (Kucing)</p>
+                            <p><strong>Jenis Appoinment:</strong> Panggil dokter ke rumah</p>
+                        </div>
+                        <div class="appt-time">
+                            <p class="time-label">Tanggal & waktu</p>
+                            <p class="time-value">10 September 2026, 14.00</p>
+                        </div>
+                        <button class="btn-proses">Proses</button>
+                    </div>
+
+                    <!-- Appointment 2 (Anjing) -->
+                    <div class="appointment-card">
+                        <div class="pet-icon-wrapper">
+                            <svg class="pet-svg" viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 18C12 18 8 24 8 32C8 38 12 40 16 38"/>
+                                <path d="M48 18C52 18 56 24 56 32C56 38 52 40 48 38"/>
+                                <path d="M16 20C16 12 24 10 32 10C40 10 48 12 48 20C48 36 42 44 32 44C22 44 16 36 16 20Z"/>
+                                <circle cx="24" cy="24" r="2" fill="white"/>
+                                <circle cx="40" cy="24" r="2" fill="white"/>
+                                <ellipse cx="32" cy="30" rx="4" ry="3" fill="white"/>
+                                <path d="M28 36C30 38 34 38 36 36"/>
+                            </svg>
+                        </div>
+                        <div class="appt-info">
+                            <p><strong>Nama hewan:</strong> Agus (Kucing)</p>
+                            <p><strong>Jenis Appoinment:</strong> Panggil dokter ke rumah</p>
+                        </div>
+                        <div class="appt-time">
+                            <p class="time-label">Tanggal & waktu</p>
+                            <p class="time-value">10 September 2026, 14.00</p>
+                        </div>
+                        <button class="btn-proses">Proses</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
