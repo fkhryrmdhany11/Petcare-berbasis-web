@@ -155,11 +155,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 45px;
 }
 
 .pet-svg {
     width: 100%;
     height: 100%;
+    object-fit: contain;
 }
 
 .appt-info {
