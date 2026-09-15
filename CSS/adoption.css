@@ -1,0 +1,310 @@
+/* =====================================================
+   ADOPTION PAGE
+===================================================== */
+
+.adoption-content {
+    font-family: "Nunito", sans-serif;
+    background: #ffffff;
+}
+
+
+/* =====================================================
+   JUDUL KATEGORI
+===================================================== */
+
+.adoption-heading h2 {
+    font-family: "Fredoka", sans-serif;
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+
+/* =====================================================
+   KATEGORI HEWAN
+===================================================== */
+
+.category-list {
+
+    display: grid;
+
+    grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 1fr)
+  );
+    margin-bottom: 20px;
+    gap: 4;
+
+}
+
+
+/* =====================================================
+   CARD KATEGORI
+===================================================== */
+
+.category-card {
+    height: 120px;
+    width: 200px;
+    background-color: var(--secondary);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    gap: 5px;
+}
+
+
+.category-card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.category-icon {
+    font-size: 3.5rem;
+
+    line-height: 1;
+
+    margin-bottom: 0.75rem;
+}
+
+
+/* =====================================================
+   NAMA KATEGORI
+===================================================== */
+
+.category-card h3 {
+    font-family: "Fredoka", sans-serif;
+
+    color: #ffffff;
+
+    font-size: 1.35rem;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   JUDUL TEMAN BARU
+===================================================== */
+
+.pet-section h2 {
+    font-family: "Inter", sans-serif;
+
+    color: var(--primary);
+
+    font-size: 2rem;
+
+    font-weight: 600;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =====================================================
+   LIST HEWAN
+===================================================== */
+
+.pet-list {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1.5rem;
+}
+
+
+
+/* Kartu hewan yang disembunyikan */
+.pet-card.hidden {
+  display: none;
+}
+
+
+
+/* =====================================================
+   CARD HEWAN
+===================================================== */
+
+.pet-card {
+    animation: petShow 0.3s ease;
+    background-color: var(--secondary);
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    padding: 0.9rem;
+
+    min-width: 0;
+}
+
+
+/* =====================================================
+   FOTO HEWAN
+===================================================== */
+
+.pet-photo {
+    width: 100%;
+
+    height: 155px;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background-color: #ffffff;
+}
+
+
+.pet-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* =====================================================
+   INFORMASI HEWAN
+===================================================== */
+
+.pet-detail {
+    padding: 0.85rem 0.25rem 0.25rem;
+}
+
+
+.pet-detail p {
+    color: #ffffff;
+
+    font-family: "Nunito", sans-serif;
+
+    font-size: 0.9rem;
+
+    font-weight: 600;
+
+    line-height: 1.55;
+}
+
+
+/* =====================================================
+   BUTTON ADOPSI
+===================================================== */
+
+.adoption-button {
+    width: 100%;
+
+    margin-top: 0.8rem;
+
+    padding: 0.65rem 1rem;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #e0d427;
+
+    color: var(--primary);
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 0.85rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* HOVER BUTTON */
+
+.adoption-button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* BUTTON NONAKTIF */
+
+.adoption-button:disabled {
+    background-color: #cbd5e1;
+
+    color: #64748b;
+
+    cursor: not-allowed;
+
+    opacity: 1;
+}
+
+
+/* HILANGKAN EFEK HOVER PADA BUTTON NONAKTIF */
+
+.adoption-button:disabled:hover {
+    transform: none;
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+
+@keyframes petShow {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1000px) {
+
+    .category-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pet-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .category-list {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-list {
+        grid-template-columns: 1fr;
+    }
+
+    .adoption-heading h2,
+    .pet-heading h2 {
+        font-size: 1.6rem;
+    }
+
+}
