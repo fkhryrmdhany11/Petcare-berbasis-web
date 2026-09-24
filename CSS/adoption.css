@@ -1,310 +1,449 @@
-/* =====================================================
-   ADOPTION PAGE
-===================================================== */
-
-.adoption-content {
-    font-family: "Nunito", sans-serif;
-    background: #ffffff;
+.adoption-page {
+  padding-top: 30px;
 }
 
 
-/* =====================================================
-   JUDUL KATEGORI
-===================================================== */
-
-.adoption-heading h2 {
-    font-family: "Fredoka", sans-serif;
-    color: var(--primary);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-
-/* =====================================================
-   KATEGORI HEWAN
-===================================================== */
 
 .category-list {
-
-    display: grid;
-
-    grid-template-columns: repeat(
-    auto-fit,
-    minmax(100px, 1fr)
-  );
-    margin-bottom: 20px;
-    gap: 4;
-
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
 }
-
-
-/* =====================================================
-   CARD KATEGORI
-===================================================== */
 
 .category-card {
-    height: 120px;
-    width: 200px;
-    background-color: var(--secondary);
-    border-radius: var(--radius);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    gap: 5px;
+  border: none;
+  background: white;
+  border-radius: 14px;
+  padding: 20px 15px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(15, 40, 84, 0.08);
+  transition: 0.3s ease;
 }
-
 
 .category-card:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
+  box-shadow: 0 7px 18px rgba(15, 40, 84, 0.15);
 }
 
-
-/* =====================================================
-   ICON
-===================================================== */
+.category-card.active {
+  background: #0f2854;
+  color: white;
+}
 
 .category-icon {
-    font-size: 3.5rem;
-
-    line-height: 1;
-
-    margin-bottom: 0.75rem;
+  font-size: 35px;
+  margin-bottom: 8px;
 }
-
-
-/* =====================================================
-   NAMA KATEGORI
-===================================================== */
 
 .category-card h3 {
-    font-family: "Fredoka", sans-serif;
-
-    color: #ffffff;
-
-    font-size: 1.35rem;
-
-    font-weight: 600;
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 17px;
 }
 
-
-/* =====================================================
-   JUDUL TEMAN BARU
-===================================================== */
 
 .pet-section h2 {
-    font-family: "Inter", sans-serif;
-
-    color: var(--primary);
-
-    font-size: 2rem;
-
-    font-weight: 600;
-
-    margin-bottom: 1.5rem;
+  color: #0f2854;
+  font-family: "Fredoka", sans-serif;
+  font-size: 28px;
+  margin-bottom: 25px;
 }
 
 
-/* =====================================================
-   LIST HEWAN
-===================================================== */
+
 
 .pet-list {
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 
 
-/* Kartu hewan yang disembunyikan */
+.pet-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(15, 40, 84, 0.10);
+  transition: 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(15, 40, 84, 0.16);
+}
+
+
+
+.pet-photo {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.pet-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.3s ease;
+}
+
+.pet-card:hover .pet-photo img {
+  transform: scale(1.04);
+}
+
+
+
+.pet-detail {
+  padding: 18px;
+}
+
+.pet-detail p {
+  margin: 7px 0;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.pet-detail p:first-child {
+  font-weight: 700;
+  color: #0f2854;
+}
+
+
+
+
+.adoption-button {
+  width: 100%;
+  border: none;
+  border-radius: 9px;
+  padding: 10px;
+  margin-top: 12px;
+
+  background: #0f2854;
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.adoption-button:hover {
+  background: #1c4d8d;
+}
+
+
+
+
+.adoption-button:disabled {
+  background: #aaa;
+  color: white;
+  cursor: not-allowed;
+}
+
+
+
 .pet-card.hidden {
   display: none;
 }
 
 
 
-/* =====================================================
-   CARD HEWAN
-===================================================== */
 
-.pet-card {
-    animation: petShow 0.3s ease;
-    background-color: var(--secondary);
+#adoptionModal .modal-content {
+  border: none;
+  border-radius: 14px;
+  overflow: hidden;
 
-    border-radius: var(--radius);
-
-    overflow: hidden;
-
-    padding: 0.9rem;
-
-    min-width: 0;
+  box-shadow:
+    0 8px 30px rgba(15, 40, 84, 0.18);
 }
 
 
-/* =====================================================
-   FOTO HEWAN
-===================================================== */
 
-.pet-photo {
-    width: 100%;
 
-    height: 155px;
+#adoptionModal .modal-header {
+  background: #0f2854;
+  color: white;
 
-    overflow: hidden;
+  border-bottom: none;
 
-    border-radius: 10px;
+  padding: 20px 25px;
+}
 
-    background-color: #ffffff;
+#adoptionModal .modal-title {
+  color: white;
+
+  font-family: "Fredoka", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#adoptionModal .btn-close {
+  filter: brightness(0) invert(1);
 }
 
 
-.pet-photo img {
-    width: 100%;
 
-    height: 100%;
 
-    object-fit: cover;
-
-    display: block;
+#adoptionModal .modal-body {
+  padding: 25px 30px;
+  background: white;
 }
 
 
-/* =====================================================
-   INFORMASI HEWAN
-===================================================== */
 
-.pet-detail {
-    padding: 0.85rem 0.25rem 0.25rem;
+.adoption-form-header {
+  margin-bottom: 25px;
+}
+
+.adoption-form-header p {
+  margin: 0;
+
+  color: #666;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
 }
 
 
-.pet-detail p {
-    color: #ffffff;
 
-    font-family: "Nunito", sans-serif;
 
-    font-size: 0.9rem;
-
-    font-weight: 600;
-
-    line-height: 1.55;
+.form-group {
+  margin-bottom: 18px;
 }
 
 
-/* =====================================================
-   BUTTON ADOPSI
-===================================================== */
 
-.adoption-button {
-    width: 100%;
+.form-group label {
+  display: block;
 
-    margin-top: 0.8rem;
+  margin-bottom: 7px;
 
-    padding: 0.65rem 1rem;
+  color: #0f2854;
 
-    border: none;
-
-    border-radius: 8px;
-
-    background-color: #e0d427;
-
-    color: var(--primary);
-
-    font-family: "Poppins", sans-serif;
-
-    font-size: 0.85rem;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition: all 0.2s ease;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 
-/* HOVER BUTTON */
 
-.adoption-button:hover {
-    transform: translateY(-2px);
 
-    opacity: 0.9;
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #d6dce5;
+  border-radius: 9px;
+
+  padding: 11px 13px;
+
+  background: white;
+  color: #333;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+
+  outline: none;
+
+  transition: 0.3s ease;
 }
 
 
-/* BUTTON NONAKTIF */
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #1c4d8d;
 
-.adoption-button:disabled {
-    background-color: #cbd5e1;
-
-    color: #64748b;
-
-    cursor: not-allowed;
-
-    opacity: 1;
+  box-shadow:
+    0 0 0 3px rgba(28, 77, 141, 0.10);
 }
 
 
-/* HILANGKAN EFEK HOVER PADA BUTTON NONAKTIF */
 
-.adoption-button:disabled:hover {
-    transform: none;
 
-    opacity: 1;
+.form-group input[readonly] {
+  background: #f3f5f8;
+
+  color: #0f2854;
+
+  font-weight: 600;
+
+  cursor: not-allowed;
 }
 
 
-/* =====================================================
-   RESPONSIVE
-===================================================== */
+
+.form-group textarea {
+  resize: vertical;
+}
 
 
-@keyframes petShow {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
+
+.submit-adoption-button {
+  width: 100%;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 12px;
+
+  background: #0f2854;
+  color: white;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.submit-adoption-button:hover {
+  background: #1c4d8d;
+}
+
+.submit-adoption-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
+.adoption-message {
+  margin-bottom: 15px;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.site-footer {
+  margin-top: 60px;
+  background: #0f2854;
+  color: white;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 35px;
+  padding: 40px 50px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.footer-brand p,
+.footer-col p {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-col h4 {
+  font-family: "Fredoka", sans-serif;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-socials a {
+  text-decoration: none;
+  font-size: 22px;
+  transition: 0.2s ease;
+}
+
+.footer-socials a:hover {
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  padding: 15px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  font-family: "Nunito", sans-serif;
+  font-size: 13px;
+}
+
+
+@media (max-width: 1100px) {
+
+  .pet-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  to {
-    opacity: 1;
-    transform: scale(1);
+  .category-list {
+    grid-template-columns: repeat(3, 1fr);
   }
-}
 
-@media (max-width: 1000px) {
-
-    .category-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pet-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    .category-list {
-        grid-template-columns: 1fr;
-    }
+  .pet-list {
+    grid-template-columns: 1fr;
+  }
 
-    .pet-list {
-        grid-template-columns: 1fr;
-    }
+  .category-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .adoption-heading h2,
-    .pet-heading h2 {
-        font-size: 1.6rem;
-    }
+  .footer-top {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+
+  .pet-section h2 {
+    font-size: 24px;
+  }
+
+
+
+  #adoptionModal .modal-body {
+    padding: 20px;
+  }
+
+  #adoptionModal .modal-header {
+    padding: 18px 20px;
+  }
+
+  #adoptionModal .modal-title {
+    font-size: 21px;
+  }
 
 }
