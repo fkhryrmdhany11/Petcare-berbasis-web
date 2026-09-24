@@ -95,13 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
       adoptionForm.reset();
 
 
-      // Nama hewan otomatis masuk
-
       petNameInput.value =
         petName;
 
+
       adoptionMessage.innerHTML =
         "";
+
 
       adoptionModal.show();
 
@@ -112,58 +112,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   adoptionForm.addEventListener(
     "submit",
-    async (event) => {
+    (event) => {
 
       event.preventDefault();
 
 
-      const submitButton =
-        adoptionForm.querySelector(
-          'button[type="submit"]'
-        );
+      const fullName =
+        document.getElementById(
+          "fullName"
+        ).value.trim();
 
 
-      const formData = {
+      const email =
+        document.getElementById(
+          "email"
+        ).value.trim();
 
-        pet_name:
-          document.getElementById(
-            "petName"
-          ).value.trim(),
 
-        full_name:
-          document.getElementById(
-            "fullName"
-          ).value.trim(),
+      const phone =
+        document.getElementById(
+          "phone"
+        ).value.trim();
 
-        email:
-          document.getElementById(
-            "email"
-          ).value.trim(),
 
-        phone:
-          document.getElementById(
-            "phone"
-          ).value.trim(),
+      const address =
+        document.getElementById(
+          "address"
+        ).value.trim();
 
-        address:
-          document.getElementById(
-            "address"
-          ).value.trim(),
 
-        reason:
-          document.getElementById(
-            "reason"
-          ).value.trim()
+      const reason =
+        document.getElementById(
+          "reason"
+        ).value.trim();
 
-      };
 
       if (
-        !formData.pet_name ||
-        !formData.full_name ||
-        !formData.email ||
-        !formData.phone ||
-        !formData.address ||
-        !formData.reason
+        !fullName ||
+        !email ||
+        !phone ||
+        !address ||
+        !reason
       ) {
 
         adoptionMessage.innerHTML = `
@@ -177,92 +166,23 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
 
-      submitButton.disabled = true;
-
-      submitButton.textContent =
-        "Mengirim...";
-
-
-      try {
-
-        const response =
-          await fetch(
-            "../api/adoption.php",
-            {
-
-              method: "POST",
-
-              headers: {
-                "Content-Type":
-                  "application/json"
-              },
-
-              body:
-                JSON.stringify(
-                  formData
-                )
-
-            }
-          );
+      adoptionMessage.innerHTML = `
+        <div class="alert alert-success">
+          Pengajuan adopsi berhasil dikirim!
+        </div>
+      `;
 
 
-        const result =
-          await response.json();
+      setTimeout(() => {
 
-        if (result.success) {
+        adoptionModal.hide();
 
-          adoptionMessage.innerHTML = `
-            <div class="alert alert-success">
-              Pengajuan adopsi berhasil dikirim.
-            </div>
-          `;
+        adoptionForm.reset();
 
+        adoptionMessage.innerHTML =
+          "";
 
-          setTimeout(() => {
-
-            adoptionModal.hide();
-
-            adoptionForm.reset();
-
-            adoptionMessage.innerHTML = "";
-
-          }, 1500);
-
-
-        } else {
-
-          adoptionMessage.innerHTML = `
-            <div class="alert alert-danger">
-              ${
-                result.message ||
-                "Pengajuan gagal dikirim."
-              }
-            </div>
-          `;
-
-        }
-
-
-      } catch (error) {
-
-        console.error(error);
-
-
-        adoptionMessage.innerHTML = `
-          <div class="alert alert-danger">
-            Terjadi kesalahan saat mengirim data.
-          </div>
-        `;
-
-      }
-
-
-      
-
-      submitButton.disabled = false;
-
-      submitButton.textContent =
-        "Ajukan Adopsi";
+      }, 1500);
 
     }
   );
