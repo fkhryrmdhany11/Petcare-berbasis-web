@@ -110,50 +110,38 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
+    const successModalElement =
+    document.getElementById("successModal");
+
+  const successModal =
+    new bootstrap.Modal(successModalElement);
+
+  const successOkButton =
+    document.getElementById("successOkButton");
+
+
   adoptionForm.addEventListener(
     "submit",
     (event) => {
 
       event.preventDefault();
 
-
       const fullName =
-        document.getElementById(
-          "fullName"
-        ).value.trim();
-
+        document.getElementById("fullName").value.trim();
 
       const email =
-        document.getElementById(
-          "email"
-        ).value.trim();
-
+        document.getElementById("email").value.trim();
 
       const phone =
-        document.getElementById(
-          "phone"
-        ).value.trim();
-
+        document.getElementById("phone").value.trim();
 
       const address =
-        document.getElementById(
-          "address"
-        ).value.trim();
-
+        document.getElementById("address").value.trim();
 
       const reason =
-        document.getElementById(
-          "reason"
-        ).value.trim();
+        document.getElementById("reason").value.trim();
 
-
-      if (
-        !fullName ||
-        !email ||
-        !phone ||
-        !address ||
-        !reason
-      ) {
+      if (!fullName || !email || !phone || !address || !reason) {
 
         adoptionMessage.innerHTML = `
           <div class="alert alert-danger">
@@ -165,26 +153,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       }
 
+      adoptionMessage.innerHTML = "";
 
-      adoptionMessage.innerHTML = `
-        <div class="alert alert-success">
-          Pengajuan adopsi berhasil dikirim!
-        </div>
-      `;
+      adoptionModal.hide();
 
-
-      setTimeout(() => {
-
-        adoptionModal.hide();
-
-        adoptionForm.reset();
-
-        adoptionMessage.innerHTML =
-          "";
-
-      }, 1500);
+      successModal.show();
 
     }
   );
 
-});
+
+  successOkButton.addEventListener("click", () => {
+
+    successModal.hide();
+
+    adoptionForm.reset();
+
+  });
+  });
