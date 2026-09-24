@@ -1,216 +1,201 @@
 <!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../CSS/main.css" />
-    <link rel="stylesheet" href="../CSS/shop.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-    <title>Shop | PawPaw Pet Care</title>
-    </head>
-    <body>
-      <div class="app" id="app">
-        <div class="marquee">
-          <span> 🐾 50+ Adopsi Setiap Bulan - Jadwalkan Vaksin Kapan Saja - Semua Item Toko Diskon 25% 🐾 </span>
-        </div>
-      <aside class="sidebar">
-        <button class="sidebar-logo" id="sidebarToggle" title="Buka/tutup menu">
-          <img src="../assets/img/logo.png" alt="Logo PawPaw Pet Care" />
-        </button>
 
-        <ul class="nav-list">
-          <li><a href="../index.html"><span class="label">Beranda</span></a></li>
-          <li><a href="adoption.html"><span class="label">Adopsi</span></a></li>
-          <li><a href="shop.html" class="active"><span class="label">Toko</span></a></li>
-          <li><a href="health-services.html"><span class="label">Kesehatan</span></a></li>
-          <li><a href="settings.html"><span class="label">Pengaturan</span></a></li>
-        </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <link rel="stylesheet" href="../CSS/shop.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <title>Shop | PawPaw Pet Care</title>
+</head>
 
-        <div class="sidebar-footer">✦ <span class="label">Log Out</span></div>
-      </aside>
+<body>
+  <div class="app" id="app">
 
-      <header class="page-header">
-        <div class="mascot">
-          <img src="../assets/img/cuking.png" alt="Maskot PawPaw Pet Care" />
-        </div>
+    <div class="marquee">
+      <span>🐾 50+ Adopsi Setiap Bulan - </span>
+      <span>Jadwalkan Vaksin Kapan Saja - </span>
+      <span>Semua Item Toko Diskon 25% 🐾</span>
+    </div>
+
+    <aside class="sidebar">
+      <button class="sidebar-logo" id="sidebarToggle" title="Buka/tutup menu">
+        <img src="../assets/img/logo.png" alt="Logo PawPaw Pet Care" />
+      </button>
+
+      <ul class="nav-list">
+        <li><a href="../index.html"><span class="label">Beranda</span></a></li>
+        <li><a href="adoption.html"><span class="label">Adopsi</span></a></li>
+        <li><a href="shop.html" class="active"><span class="label">Toko</span></a></li>
+        <li><a href="health-services.html"><span class="label">Kesehatan</span></a></li>
+        <li><a href="settings.html"><span class="label">Pengaturan</span></a></li>
+      </ul>
+
+      <div class="sidebar-footer">✦ <span class="label">Log Out</span></div>
+    </aside>
+
+    <header class="page-header">
+      <div class="mascot">
+        <img src="../assets/img/cuking.png" alt="Maskot PawPaw Pet Care" />
+      </div>
+      <div>
+        <h1>PAWPAW PET CARE</h1>
+        <p>
+          Pet Care No. 1 Se-Panam 🐾<br />
+          Sahabat Terbaik Hewan Peliharaan Anda 🐾
+        </p>
+      </div>
+    </header>
+
+    <main class="page-content shop-page">
+      <p id="cart-status" class="visually-hidden" role="status" aria-live="polite"></p>
+      <section class="shop-catalog">
+        <div class="shop-heading">
           <div>
-            <h1>PAWPAW PET CARE</h1>
-            <p>
-              Pet Care No. 1 Se-Panam 🐾<br />
-              Sahabat Terbaik Hewan Peliharaan Anda 🐾
+            <p class="shop-eyebrow">PAWPAW SHOP</p>
+            <h2>Katalog Produk</h2>
+            <p class="shop-subtitle">
+              Temukan makanan, mainan, dan kebutuhan perawatan untuk hewan peliharaan.
             </p>
           </div>
-        </header>
-
-        <!-- BAGIAN SHOP: bagian utama yang menjadi tugas kamu -->
-  <main class="page-content shop-page">
-    <section class="shop-catalog">
-      <div class="shop-heading">
-        <div>
-          <p class="shop-eyebrow">PAWPAW SHOP</p>
-          <h2>Katalog Produk</h2>
-          <p class="shop-subtitle">
-            Temukan makanan, mainan, dan kebutuhan perawatan untuk hewan peliharaan.
-          </p>
+          <a class="shop-cart-link" href="cart.html" aria-label="Lihat keranjang belanja">
+            🛒 Keranjang <span class="shop-cart-count" data-cart-count>0</span>
+          </a>
         </div>
-      </div>
 
 
-      <input class="filter-control" type="radio" name="filter" id="filter-semua" checked />
-      <input class="filter-control" type="radio" name="filter" id="filter-makanan" />
-      <input class="filter-control" type="radio" name="filter" id="filter-mainan" />
-      <input class="filter-control" type="radio" name="filter" id="filter-perawatan" />
+        <input class="filter-control" type="radio" name="filter" id="filter-semua" checked />
+        <input class="filter-control" type="radio" name="filter" id="filter-makanan" />
+        <input class="filter-control" type="radio" name="filter" id="filter-mainan" />
+        <input class="filter-control" type="radio" name="filter" id="filter-perawatan" />
 
-      <div class="shop-filters" aria-label="Filter kategori produk">
-        <label for="filter-semua">Semua</label>
-        <label for="filter-makanan">Makanan</label>
-        <label for="filter-mainan">Mainan</label>
-        <label for="filter-perawatan">Perawatan</label>
-      </div>
+        <div class="shop-filters" aria-label="Filter kategori produk">
+          <label for="filter-semua">Semua</label>
+          <label for="filter-makanan">Makanan</label>
+          <label for="filter-mainan">Mainan</label>
+          <label for="filter-perawatan">Perawatan</label>
+        </div>
 
-      <div class="product-grid">
-        <article class="product-card makanan">
-          <div class="product-image">
-            <img src="../assets/img/shop/whiskas.png" alt="Whiskas Adult" />
-          </div>
-          <div class="product-info">
-            <h3>Whiskas Adult</h3>
-            <p class="product-category">Makanan Kucing</p>
-            <p class="product-description">Untuk Kucing Dewasa</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 75.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Whiskas Adult ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+        <div class="product-grid">
+          <article class="product-card makanan">
+            <div class="product-image">
+              <img src="../assets/img/shop/whiskas.png" alt="Whiskas Adult" />
             </div>
-          </div>
-        </article>
-
-        <article class="product-card makanan">
-          <div class="product-image">
-            <img src="../assets/img/shop/pedigree.png" alt="Pedigree Adult" />
-          </div>
-          <div class="product-info">
-            <h3>Pedigree Adult</h3>
-            <p class="product-category">Makanan Anjing</p>
-            <p class="product-description">Untuk Anjing Dewasa</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 100.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Pedigree Adult ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+            <div class="product-info">
+              <h3>Whiskas Adult</h3>
+              <p class="product-category">Makanan Kucing</p>
+              <p class="product-description">Untuk Kucing Dewasa</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 75.000</p>
+                <button class="cart-button" type="button" data-add-cart="whiskas"
+                  aria-label="Tambah Whiskas Adult ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="product-card perawatan">
-          <div class="product-image">
-            <img src="../assets/img/shop/shampoo-anjing.png" alt="Shampoo Anjing" />
-          </div>
-          <div class="product-info">
-            <h3>Shampoo Anjing</h3>
-            <p class="product-category">Perawatan</p>
-            <p class="product-description">Untuk Anjing</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 90.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Shampoo Anjing ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+          <article class="product-card makanan">
+            <div class="product-image">
+              <img src="../assets/img/shop/pedigree.png" alt="Pedigree Adult" />
             </div>
-          </div>
-        </article>
-
-        <article class="product-card perawatan">
-          <div class="product-image">
-            <img src="../assets/img/shop/shampoo-kucing.png" alt="Shampoo Kucing" />
-          </div>
-          <div class="product-info">
-            <h3>Shampoo Kucing</h3>
-            <p class="product-category">Perawatan</p>
-            <p class="product-description">Untuk Kucing</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 85.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Shampoo Kucing ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+            <div class="product-info">
+              <h3>Pedigree Adult</h3>
+              <p class="product-category">Makanan Anjing</p>
+              <p class="product-description">Untuk Anjing Dewasa</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 100.000</p>
+                <button class="cart-button" type="button" data-add-cart="pedigree"
+                  aria-label="Tambah Pedigree Adult ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="product-card perawatan">
-          <div class="product-image">
-            <img src="../assets/img/shop/sisir-grooming.png" alt="Sisir Grooming" />
-          </div>
-          <div class="product-info">
-            <h3>Sisir Grooming</h3>
-            <p class="product-category">Perawatan</p>
-            <p class="product-description">Untuk Kucing &amp; Anjing</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 60.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Sisir Grooming ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+          <article class="product-card perawatan">
+            <div class="product-image">
+              <img src="../assets/img/shop/shampoo-anjing.png" alt="Shampoo Anjing" />
             </div>
-          </div>
-        </article>
-
-        <article class="product-card mainan">
-          <div class="product-image">
-            <img src="../assets/img/shop/mainan-tulang.png" alt="Mainan Tulang Karet" />
-          </div>
-          <div class="product-info">
-            <h3>Mainan Tulang Karet</h3>
-            <p class="product-category">Mainan</p>
-            <p class="product-description">Untuk Kucing &amp; Anjing</p>
-            <div class="product-footer">
-              <p class="product-price">Rp 35.000</p>
-              <button class="cart-button" type="button" aria-label="Tambah Mainan Tulang Karet ke keranjang">
-                <span aria-hidden="true">🛒</span>
-              </button>
+            <div class="product-info">
+              <h3>Shampoo Anjing</h3>
+              <p class="product-category">Perawatan</p>
+              <p class="product-description">Untuk Anjing</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 90.000</p>
+                <button class="cart-button" type="button" data-add-cart="shampoo-anjing"
+                  aria-label="Tambah Shampoo Anjing ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
             </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-  <footer class="site-footer">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <img src="assets/img/logo.png" alt="PawPaw Logo" class="footer-logo">
-      <p>Sahabat terbaik hewan peliharaan Anda. Adopsi, rawat, dan jaga kesehatan si bulu dengan mudah.</p>
-    </div>
+          </article>
 
-    <div class="footer-col">
-      <h4>Kontak</h4>
-      <p>📍 Jl. Panam Raya No. 12, Pekanbaru</p>
-      <p>📞 0812-3456-7890</p>
-      <p>✉️ hello@pawpawpetcare.id</p>
-    </div>
+          <article class="product-card perawatan">
+            <div class="product-image">
+              <img src="../assets/img/shop/shampoo-kucing.png" alt="Shampoo Kucing" />
+            </div>
+            <div class="product-info">
+              <h3>Shampoo Kucing</h3>
+              <p class="product-category">Perawatan</p>
+              <p class="product-description">Untuk Kucing</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 85.000</p>
+                <button class="cart-button" type="button" data-add-cart="shampoo-kucing"
+                  aria-label="Tambah Shampoo Kucing ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
+            </div>
+          </article>
 
-    <div class="footer-col">
-      <h4>Jam Operasional</h4>
-      <p>Senin - Sabtu: 08.00 - 20.00</p>
-      <p>Minggu: 09.00 - 17.00</p>
-      <p>Layanan darurat: 24 Jam</p>
-    </div>
+          <article class="product-card perawatan">
+            <div class="product-image">
+              <img src="../assets/img/shop/sisir-grooming.png" alt="Sisir Grooming" />
+            </div>
+            <div class="product-info">
+              <h3>Sisir Grooming</h3>
+              <p class="product-category">Perawatan</p>
+              <p class="product-description">Untuk Kucing &amp; Anjing</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 60.000</p>
+                <button class="cart-button" type="button" data-add-cart="sisir"
+                  aria-label="Tambah Sisir Grooming ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
+            </div>
+          </article>
 
-    <div class="footer-col">
-      <h4>Ikuti Kami</h4>
-      <div class="footer-socials">
-        <a href="#" aria-label="Instagram">📷</a>
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="WhatsApp">💬</a>
-      </div>
-    </div>
+          <article class="product-card mainan">
+            <div class="product-image">
+              <img src="../assets/img/shop/mainan-tulang.png" alt="Mainan Tulang Karet" />
+            </div>
+            <div class="product-info">
+              <h3>Mainan Tulang Karet</h3>
+              <p class="product-category">Mainan</p>
+              <p class="product-description">Untuk Kucing &amp; Anjing</p>
+              <div class="product-footer">
+                <p class="product-price">Rp 35.000</p>
+                <button class="cart-button" type="button" data-add-cart="tulang"
+                  aria-label="Tambah Mainan Tulang Karet ke keranjang">
+                  <span aria-hidden="true">🛒</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 PawPaw Pet Care. All rights reserved.</p>
-  </div>
-</footer>
-      </div>
-      <script src="../JS/main.js"></script>
-    </body>
+  <!-- JS ini sudah ada di project kelompok dan hanya dipakai untuk toggle sidebar -->
+  <script src="../JS/main.js"></script>
+  <script src="../JS/cart.js"></script>
+</body>
 </html>

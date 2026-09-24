@@ -1,9 +1,3 @@
-/* =====================================================
-   SHOP.CSS
-   CSS KHUSUS HALAMAN SHOP
-   Tidak mengubah Style.css lama dan tidak mengubah main.css.
-   ===================================================== */
-
 .shop-page {
   background: #eef6fd;
   min-height: 100%;
@@ -77,7 +71,6 @@
   background: #cde2f7;
 }
 
-/* Memberi warna aktif pada kategori yang dipilih. */
 #filter-semua:checked ~ .shop-filters label[for="filter-semua"],
 #filter-makanan:checked ~ .shop-filters label[for="filter-makanan"],
 #filter-mainan:checked ~ .shop-filters label[for="filter-mainan"],
@@ -192,7 +185,6 @@
   background: #a8deef;
 }
 
-/* Filter produk tanpa JavaScript. */
 #filter-makanan:checked ~ .product-grid .product-card:not(.makanan),
 #filter-mainan:checked ~ .product-grid .product-card:not(.mainan),
 #filter-perawatan:checked ~ .product-grid .product-card:not(.perawatan) {
@@ -237,4 +229,32 @@
   .product-card {
     min-height: 335px;
   }
+}
+
+.shop-page .shop-cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background-color: #0f2854;
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.shop-page .shop-cart-link:hover {
+  background-color: #1c4d8d;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.shop-page .shop-cart-count {
+  min-width: 26px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background-color: #bde8f5;
+  color: #0f2854;
+  text-align: center;
 }

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keranjang | PawPaw Pet Care</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../CSS/main.css" />
+  <link rel="stylesheet" href="../CSS/cart.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="app" id="app">
+    <div class="marquee">
+      <span>🐾 50+ Adopsi Setiap Bulan - </span>
+      <span>Jadwalkan Vaksin Kapan Saja - </span>
+      <span>Semua Item Toko Diskon 25% 🐾</span>
+    </div>
+
+    <aside class="sidebar">
+      <button class="sidebar-logo" id="sidebarToggle" title="Buka/tutup menu">
+        <img src="../assets/img/logo.png" alt="Logo PawPaw Pet Care" />
+      </button>
+
+      <ul class="nav-list">
+        <li><a href="../index.html"><span class="label">Beranda</span></a></li>
+        <li><a href="adoption.html"><span class="label">Adopsi</span></a></li>
+        <li><a href="shop.html" class="active"><span class="label">Toko</span></a></li>
+        <li><a href="health-services.html"><span class="label">Kesehatan</span></a></li>
+        <li><a href="settings.html"><span class="label">Pengaturan</span></a></li>
+      </ul>
+
+      <div class="sidebar-footer">✦ <span class="label">Log Out</span></div>
+    </aside>
+
+    <header class="page-header">
+      <div class="mascot">
+        <img src="../assets/img/cuking.png" alt="Maskot PawPaw Pet Care" />
+      </div>
+      <div>
+        <h1>PAWPAW PET CARE</h1>
+        <p>
+          Pet Care No. 1 Se-Panam 🐾<br />
+          Sahabat Terbaik Hewan Peliharaan Anda 🐾
+        </p>
+      </div>
+    </header>
+
+    <main class="page-content shop-page">
+      <div class="container-fluid px-0" style="max-width: 1120px">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+          <div>
+            <p class="text-uppercase small fw-bold mb-1">PawPaw Shop</p>
+            <h2 class="mb-0">Keranjang Belanja</h2>
+          </div>
+          <a class="btn btn-outline-primary" href="shop.html">← Lanjut belanja</a>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-8">
+            <section class="shop-panel" aria-label="Daftar produk">
+              <div id="cart-items"></div>
+            </section>
+          </div>
+          <div class="col-lg-4">
+            <aside class="shop-panel">
+              <h3 class="h5 mb-3">Ringkasan</h3>
+              <div class="d-flex justify-content-between mb-3"><span>Subtotal</span><strong data-subtotal>Rp0</strong>
+              </div>
+              <p class="small text-secondary">Biaya pengantaran dipilih pada halaman checkout.</p>
+              <a id="go-checkout" href="checkout.html" class="btn btn-pawpaw w-100">Lanjut ke Checkout</a>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="../JS/main.js"></script>
+  <script src="../JS/cart.js"></script>
+</body>
+
+</html>
