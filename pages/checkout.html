@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | PawPaw Pet Care</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/cart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="app" id="app">
+        <div class="marquee">
+            <span>🐾 50+ Adopsi Setiap Bulan - </span>
+            <span>Jadwalkan Vaksin Kapan Saja - </span>
+            <span>Semua Item Toko Diskon 25% 🐾</span>
+        </div>
+
+        <aside class="sidebar">
+            <button class="sidebar-logo" id="sidebarToggle" title="Buka/tutup menu">
+                <img src="../assets/img/logo.png" alt="Logo PawPaw Pet Care" />
+            </button>
+
+            <ul class="nav-list">
+                <li>
+                    <a href="../index.html"><span class="label">Beranda</span></a>
+                </li>
+                <li>
+                    <a href="adoption.html"><span class="label">Adopsi</span></a>
+                </li>
+                <li>
+                    <a href="shop.html" class="active"><span class="label">Toko</span></a>
+                </li>
+                <li>
+                    <a href="health-services.html"><span class="label">Kesehatan</span></a>
+                </li>
+                <li>
+                    <a href="settings.html"><span class="label">Pengaturan</span></a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">✦ <span class="label">Log Out</span></div>
+        </aside>
+
+        <header class="page-header">
+            <div class="mascot">
+                <img src="../assets/img/cuking.png" alt="Maskot PawPaw Pet Care" />
+            </div>
+            <div>
+                <h1>PAWPAW PET CARE</h1>
+                <p>
+                    Pet Care No. 1 Se-Panam 🐾<br />
+                    Sahabat Terbaik Hewan Peliharaan Anda 🐾
+                </p>
+            </div>
+        </header>
+
+        <main class="page-content shop-page">
+            <div class="container-fluid px-0" style="max-width: 1120px">
+                <div class="mb-4">
+                    <a href="cart.html" class="back-cart-link">← Kembali ke keranjang</a>
+                    <h2 class="mt-3">Checkout</h2>
+                    <p class="shop-notice mt-3">
+                        Ini simulasi untuk tugas web. Formulir ini tidak mengirim pesanan
+                        atau memproses pembayaran.
+                    </p>
+                </div>
+                <div id="order-success" class="alert alert-success" role="status" hidden></div>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <section class="shop-panel">
+                            <h3 class="h5 mb-4">Data pemesan</h3>
+                            <form id="checkout-form">
+                                <div class="mb-3">
+                                    <label class="form-label" for="customer-name">Nama</label><input
+                                        class="form-control" id="customer-name" name="name" maxlength="80" required
+                                        autocomplete="name" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="customer-phone">Nomor telepon</label><input
+                                        class="form-control" id="customer-phone" name="phone" type="tel" inputmode="tel"
+                                        maxlength="20" pattern="[0-9+ ()-]{8,20}" required autocomplete="tel" />
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="delivery-method">Cara menerima barang</label>
+                                    <select class="form-select" id="delivery-method" name="delivery">
+                                        <option value="pickup">Ambil di toko (Rp0)</option>
+                                        <option value="delivery">
+                                            Pengantaran (simulasi Rp15.000)
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="mb-3 address-field" hidden>
+                                    <label class="form-label" for="delivery-address">Alamat pengantaran</label><textarea
+                                        class="form-control" id="delivery-address" name="address" rows="3"
+                                        maxlength="300" autocomplete="street-address"></textarea>
+                                </div>
+                                <button id="place-order" class="btn btn-pawpaw w-100 py-2" type="submit">
+                                    Konfirmasi Simulasi Pesanan
+                                </button>
+                                <p class="small text-secondary mt-3 mb-0">
+                                    Jangan masukkan data asli untuk uji coba. Formulir tidak
+                                    mengirim data ke server.
+                                </p>
+                            </form>
+                        </section>
+                    </div>
+                    <div class="col-lg-5">
+                        <aside class="shop-panel">
+                            <h3 class="h5 mb-3">Ringkasan pesanan</h3>
+                            <div id="checkout-items"></div>
+                            <hr />
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal</span><span data-subtotal>Rp0</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Pengantaran</span><span data-shipping>Rp0</span>
+                            </div>
+                            <hr />
+                            <div class="d-flex justify-content-between fw-bold">
+                                <span>Total</span><span data-total>Rp0</span>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/cart.js"></script>
+</body>
+
+</html>
