@@ -8,12 +8,11 @@
     --pastel-blue: #93b4d4;
     --pastel-purple: #be7fd0;
 }
-
-
 .main-content {
     flex: 1;
     padding: 40px 50px;
     background-color: #ffffff;
+    font-family: 'Fredoka';
 }
 
 .header-title {
@@ -23,6 +22,7 @@
     margin-bottom: 40px;
     color: var(--primary);
     letter-spacing: 1px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .section {

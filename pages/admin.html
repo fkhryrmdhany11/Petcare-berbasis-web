@@ -1,143 +1,63 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Permintaan Booking</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Permintaan Booking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
 <body class="bg-light">
 
-    <div class="container my-5">
-        <div class="card shadow-sm border-0">
-            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
-                <h5 class="mb-0 fw-bold">Daftar Permintaan Booking</h5>
-                <span class="badge bg-light text-primary fs-6">Admin Panel</span>
-            </div>
-            <div class="card-body p-4">
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle border">
-                        <thead class="table-dark">
-                            <tr>
-                                <th class="text-center">No</th>
-                                <th>Nama Hewan</th>
-                                <th>Jenis Layanan</th>
-                                <th>Tanggal & Waktu</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Detail / Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabelAdmin">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="container my-5">
+    <div class="card shadow-sm border-0">
+      
+      <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+        <h5 class="mb-0 fw-bold">Daftar Permintaan Booking</h5>
+        <span class="badge bg-light text-primary fs-6">Admin Panel</span>
+      </div>
+
+      <div class="card-body p-4">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle border">
+            <thead class="table-dark">
+              <tr>
+                <th class="text-center">No</th>
+                <th>Nama Hewan</th>
+                <th>Jenis Layanan</th>
+                <th>Tanggal & Waktu</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Detail / Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tabelAdmin">
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
 
-    <!-- Jendela Pop-up Detail (Modal Bootstrap) -->
-    <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title fw-bold">Detail Permintaan Booking</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="modalBody">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                </div>
-            </div>
+    </div>
+  </div>
+
+  <!-- Pop-up Modal Detail Bootstrap -->
+  <div class="modal fade" id="modalDetail" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title fw-bold">Detail Permintaan Booking</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body" id="modalBody">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Ambil data yang sama dengan milik halaman pelanggan (pawData)
-        const dataBooking = JSON.parse(localStorage.getItem('pawData') || '[]');
-        const tbody = document.getElementById('tabelAdmin');
-        const modalDetail = new bootstrap.Modal(document.getElementById('modalDetail'));
-        const modalBody = document.getElementById('modalBody');
-
-        // Jika belum ada data
-        if (dataBooking.length === 0) {
-            tbody.innerHTML = `
-        <tr>
-          <td colspan="6" class="text-center text-muted py-4">
-            Belum ada permintaan booking masuk dari pelanggan.
-          </td>
-        </tr>`;
-        } else {
-            // Tampilkan baris data
-            dataBooking.forEach((d, index) => {
-                const tanggalRapi = d.bd ? new Date(d.bd).toLocaleString('id-ID', {
-                    day: 'numeric', month: 'long', year: 'numeric',
-                    hour: '2-digit', minute: '2-digit'
-                }).replace(' pukul ', ', ') : '-';
-
-                // Cek status data
-                const badgeStatus = d.status === 'Disetujui'
-                    ? '<span class="badge bg-success px-3 py-2">Disetujui</span>'
-                    : '<span class="badge bg-warning text-dark px-3 py-2">Menunggu Konfirmasi</span>';
-
-                // Atur tombol proses
-                const tombolProses = d.status === 'Disetujui'
-                    ? `<button class="btn btn-sm btn-secondary" disabled>Selesai</button>`
-                    : `<button class="btn btn-sm btn-success" onclick="prosesBooking(${index})">Proses</button>`;
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-          <td class="text-center fw-bold">${index + 1}</td>
-          <td>
-            <span class="fw-bold text-dark">${d.pn || '-'}</span>
-            <br><small class="text-muted">(${d.pt || 'Hewan'})</small>
-          </td>
-          <td>${d.st || '-'}</td>
-          <td>${tanggalRapi}</td>
-          <td class="text-center">${badgeStatus}</td>
-          <td class="text-center">
-            <button class="btn btn-sm btn-info text-white me-1" onclick="lihatDetail(${index})">Detail</button>
-            ${tombolProses}
-          </td>
-        `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        // Fungsi menampilkan modal detail
-        function lihatDetail(index) {
-            const item = dataBooking[index];
-            const tanggalRapi = item.bd ? new Date(item.bd).toLocaleString('id-ID', {
-                day: 'numeric', month: 'long', year: 'numeric',
-                hour: '2-digit', minute: '2-digit'
-            }).replace(' pukul ', ', ') : '-';
-
-            const badgeStatus = item.status === 'Disetujui'
-                ? '<span class="badge bg-success">Disetujui</span>'
-                : '<span class="badge bg-warning text-dark">Menunggu Konfirmasi</span>';
-
-            modalBody.innerHTML = `
-        <div class="mb-2"><strong>Nama Hewan:</strong> ${item.pn || '-'}</div>
-        <div class="mb-2"><strong>Jenis Hewan:</strong> ${item.pt || '-'}</div>
-        <div class="mb-2"><strong>Layanan Booking:</strong> ${item.st || '-'}</div>
-        <div class="mb-2"><strong>Jadwal:</strong> ${tanggalRapi}</div>
-        <div class="mb-2"><strong>Status:</strong> ${badgeStatus}</div>
-      `;
-            modalDetail.show();
-        }
-
-        // Fungsi memproses booking & menyimpan perubahan
-        function prosesBooking(index) {
-            dataBooking[index].status = 'Disetujui';
-            localStorage.setItem('pawData', JSON.stringify(dataBooking));
-            alert('Permintaan booking untuk ' + (dataBooking[index].pn || 'hewan') + ' berhasil diproses!');
-            location.reload();
-        }
-    </script>
+  <!-- Library JavaScript Bootstrap 5 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- File Logika JavaScript Khusus Admin -->
+  <script src="../JS/health-services-admin.js"></script>
 </body>
-
 </html>
