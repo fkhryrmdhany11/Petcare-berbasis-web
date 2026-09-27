@@ -258,3 +258,146 @@
   color: #0f2854;
   text-align: center;
 }
+/* Pencarian produk */
+.shop-search-wrap {
+  margin: 4px 0 16px;
+}
+
+.shop-search {
+  width: min(100%, 620px);
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid #c9dcec;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 7px 18px rgba(15, 40, 84, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shop-search:focus-within {
+  border-color: #4988c4;
+  box-shadow: 0 0 0 4px rgba(73, 136, 196, 0.12);
+}
+
+.shop-search-icon {
+  color: #1c4d8d;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.shop-search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0f2854;
+  font: inherit;
+}
+
+.shop-search input::placeholder {
+  color: #8a9ab2;
+}
+
+.shop-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.shop-search-clear {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #e8f1fa;
+  color: #0f2854;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.shop-empty-search {
+  margin: 28px 0;
+  padding: 22px;
+  border: 1px dashed #a9c5df;
+  border-radius: 16px;
+  color: #61708f;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.product-card[hidden],
+.shop-empty-search[hidden] {
+  display: none !important;
+}
+
+/* Notifikasi tambah ke keranjang: muncul di tengah lalu fade out. */
+.cart-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 5000;
+  min-width: min(390px, calc(100vw - 36px));
+  max-width: calc(100vw - 36px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-radius: 22px;
+  background: rgba(24, 29, 36, 0.86);
+  color: #ffffff;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -44%) scale(0.96);
+  visibility: hidden;
+}
+
+.cart-toast.show {
+  visibility: visible;
+  animation: cartToastFade 2.1s ease forwards;
+}
+
+.cart-toast-icon {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1c4d8d;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+@keyframes cartToastFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -42%) scale(0.96);
+  }
+  12%, 72% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -55%) scale(0.98);
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-toast.show {
+    animation-duration: 0.01ms;
+  }
+}

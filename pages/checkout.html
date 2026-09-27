@@ -67,16 +67,20 @@
                     <a href="cart.html" class="back-cart-link">← Kembali ke keranjang</a>
                     <h2 class="mt-3">Checkout</h2>
                     <p class="shop-notice mt-3">
-                        Ini simulasi untuk tugas web. Formulir ini tidak mengirim pesanan
-                        atau memproses pembayaran.
+                        Pesanan akan disimpan di browser ini untuk kebutuhan demonstrasi dan dapat dilihat pada halaman admin.
+                        Tidak ada pembayaran sungguhan yang diproses.
                     </p>
                 </div>
-                <div id="order-success" class="alert alert-success" role="status" hidden></div>
                 <div class="row g-4">
                     <div class="col-lg-7">
                         <section class="shop-panel">
                             <h3 class="h5 mb-4">Data pemesan</h3>
                             <form id="checkout-form">
+                                <div class="mb-3">
+                                    <label class="form-label" for="customer-username">Username</label><input
+                                        class="form-control" id="customer-username" name="username" maxlength="40" required
+                                        autocomplete="username" placeholder="Contoh: fakhry11" />
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="customer-name">Nama</label><input
                                         class="form-control" id="customer-name" name="name" maxlength="80" required
@@ -102,11 +106,10 @@
                                         maxlength="300" autocomplete="street-address"></textarea>
                                 </div>
                                 <button id="place-order" class="btn btn-pawpaw w-100 py-2" type="submit">
-                                    Konfirmasi Simulasi Pesanan
+                                    Buat Pesanan
                                 </button>
                                 <p class="small text-secondary mt-3 mb-0">
-                                    Jangan masukkan data asli untuk uji coba. Formulir tidak
-                                    mengirim data ke server.
+                                    Data pesanan tersimpan melalui localStorage pada browser yang sama.
                                 </p>
                             </form>
                         </section>
@@ -132,6 +135,17 @@
             </div>
         </main>
     </div>
+
+    <div id="checkout-success-modal" class="checkout-success-modal" hidden>
+        <div class="checkout-success-card" role="dialog" aria-modal="true" aria-labelledby="checkout-success-title">
+            <div class="checkout-success-icon" aria-hidden="true">✓</div>
+            <h3 id="checkout-success-title">Pesanan berhasil dibuat</h3>
+            <p id="checkout-success-message">Pesanan berhasil disimpan.</p>
+            <p class="checkout-success-redirect">Anda akan diarahkan kembali ke halaman toko.</p>
+            <a class="btn btn-pawpaw w-100" href="shop.html">Kembali ke Toko Sekarang</a>
+        </div>
+    </div>
+
     <script src="../JS/main.js"></script>
     <script src="../JS/cart.js"></script>
 </body>

@@ -53,7 +53,6 @@
     </header>
 
     <main class="page-content shop-page">
-      <p id="cart-status" class="visually-hidden" role="status" aria-live="polite"></p>
       <section class="shop-catalog">
         <div class="shop-heading">
           <div>
@@ -69,6 +68,14 @@
         </div>
 
 
+        <div class="shop-search-wrap">
+          <label class="shop-search" for="product-search">
+            <span class="shop-search-icon" aria-hidden="true">⌕</span>
+            <input id="product-search" type="search" placeholder="Cari produk, kategori, atau kebutuhan..." autocomplete="off" />
+            <button id="clear-search" class="shop-search-clear" type="button" aria-label="Hapus pencarian" hidden>×</button>
+          </label>
+        </div>
+
         <input class="filter-control" type="radio" name="filter" id="filter-semua" checked />
         <input class="filter-control" type="radio" name="filter" id="filter-makanan" />
         <input class="filter-control" type="radio" name="filter" id="filter-mainan" />
@@ -80,6 +87,8 @@
           <label for="filter-mainan">Mainan</label>
           <label for="filter-perawatan">Perawatan</label>
         </div>
+
+        <p id="search-empty" class="shop-empty-search" hidden>Tidak ada produk yang cocok dengan pencarian.</p>
 
         <div class="product-grid">
           <article class="product-card makanan">
@@ -192,6 +201,11 @@
         </div>
       </section>
     </main>
+  </div>
+
+  <div id="cart-toast" class="cart-toast" role="status" aria-live="polite" aria-atomic="true">
+    <span class="cart-toast-icon" aria-hidden="true">✓</span>
+    <span id="cart-toast-message">Produk telah dimasukkan ke keranjang</span>
   </div>
 
   <!-- JS ini sudah ada di project kelompok dan hanya dipakai untuk toggle sidebar -->
