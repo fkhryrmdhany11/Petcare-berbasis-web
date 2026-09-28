@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/main.css">
-  <link rel="stylesheet" href="../CSS/adoption.css">
+  <link rel="stylesheet" href="../CSS/adoption-history.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <title>Adopsi - PawPaw Pet Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900;family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <title>Riwayat Adopsi - PawPaw Pet Care</title>
 </head>
 <body>
 <div class="app" id="app">
@@ -47,38 +47,15 @@
   </header>
 
   <main class="page-content">
-    <section class="adoption-head">
+    <div class="history-head">
       <div>
-        <h2>ADOPSI HEWAN</h2>
-        <p>Temukan sahabat baru yang membutuhkan rumah penuh kasih.</p>
+        <h2>RIWAYAT ADOPSI</h2>
+        <p>Daftar pengajuan adopsi yang pernah kamu lakukan.</p>
       </div>
-      <a href="adoption-history.html" class="history-link">Riwayat Adopsi</a>
-    </section>
-
-    <div class="category-list">
-      <button class="category-btn active" data-category="semua">
-        <img src="../assets/img/all.png" alt="Semua">
-        <span>Semua</span>
-      </button>
-      <button class="category-btn" data-category="kucing">
-        <img src="../assets/img/kucing.png" alt="Kucing">
-        <span>Kucing</span>
-      </button>
-      <button class="category-btn" data-category="anjing">
-        <img src="../assets/img/dog.png" alt="Anjing">
-        <span>Anjing</span>
-      </button>
-      <button class="category-btn" data-category="kelinci">
-        <img src="../assets/img/kelinci.png" alt="Kelinci">
-        <span>Kelinci</span>
-      </button>
-      <button class="category-btn" data-category="lainnya">
-        <img src="../assets/img/other.png" alt="Lainnya">
-        <span>Lainnya</span>
-      </button>
+      <a href="adoption.html" class="back-adoption">Kembali ke Adopsi</a>
     </div>
 
-    <div class="adoption-grid" id="adoptionGrid"></div>
+    <div class="history-list" id="historyList"></div>
   </main>
 
   <footer class="site-footer">
@@ -114,45 +91,7 @@
   </footer>
 </div>
 
-<div class="modal-overlay" id="adoptionModal">
-  <div class="adoption-modal">
-    <button class="modal-close" id="closeModal">&times;</button>
-    <h2>Ajukan Adopsi</h2>
-    <p class="modal-pet">Mengajukan adopsi untuk <strong id="selectedPet"></strong></p>
-
-    <form id="adoptionForm">
-      <input type="hidden" id="petName">
-      <input type="hidden" id="petJenis">
-      <input type="hidden" id="petRas">
-      <input type="hidden" id="petGender">
-      <input type="hidden" id="petUmur">
-      <input type="hidden" id="petImage">
-
-      <label for="nama">Nama Lengkap</label>
-      <input type="text" id="nama" required>
-
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
-
-      <label for="telepon">Nomor Telepon</label>
-      <input type="tel" id="telepon" required>
-
-      <label for="alamat">Alamat</label>
-      <textarea id="alamat" rows="3" required></textarea>
-
-      <label for="alasan">Alasan Adopsi</label>
-      <textarea id="alasan" rows="4" required></textarea>
-
-      <button type="submit" class="submit-adoption">Kirim Pengajuan</button>
-    </form>
-  </div>
-</div>
-
-<div class="success-message" id="successMessage">
-  Pengajuan adopsi berhasil dikirim!
-</div>
-
 <script src="../JS/main.js"></script>
-<script src="../JS/adoption.js"></script>
+<script src="../JS/adoption-history.js"></script>
 </body>
 </html>

@@ -1,0 +1,139 @@
+.history-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.7rem;
+}
+
+.history-head h2 {
+  color: var(--primary);
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.7rem;
+  margin-bottom: .35rem;
+}
+
+.history-head p {
+  color: #666;
+  font-size: .9rem;
+}
+
+.back-adoption {
+  padding: .7rem 1.1rem;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--secondary);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back-adoption:hover {
+  background: var(--primary);
+}
+
+.history-list {
+  display: grid;
+  gap: 15px;
+}
+
+.history-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px;
+  border: 1px solid #e3eaf2;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(15,40,84,.07);
+}
+
+.history-image {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 13px;
+  object-fit: cover;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-info h3 {
+  margin-bottom: .3rem;
+  color: var(--primary);
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.2rem;
+}
+
+.history-info p {
+  margin-bottom: .2rem;
+  color: #666;
+  font-size: .8rem;
+}
+
+.history-date {
+  margin-top: .4rem;
+}
+
+.history-status {
+  flex-shrink: 0;
+  min-width: 150px;
+  padding: .55rem .8rem;
+  border-radius: 9px;
+  text-align: center;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.status-waiting {
+  color: #856404;
+  background: #fff3cd;
+}
+
+.status-success {
+  color: #146c43;
+  background: #d1e7dd;
+}
+
+.status-failed {
+  color: #842029;
+  background: #f8d7da;
+}
+
+.empty-history {
+  padding: 3rem 1rem;
+  border: 1px dashed #ccd7e3;
+  border-radius: 15px;
+  color: #777;
+  text-align: center;
+  font-size: .9rem;
+  background: #f8fafc;
+}
+
+@media (max-width: 800px) {
+  .history-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .back-adoption {
+    width: 100%;
+    text-align: center;
+  }
+
+  .history-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .history-image {
+    width: 100%;
+    height: 180px;
+  }
+
+  .history-status {
+    width: 100%;
+  }
+}

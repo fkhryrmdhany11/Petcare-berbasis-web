@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../CSS/main.css">
-  <link rel="stylesheet" href="../CSS/admin-adoption.css">
+  <link rel="stylesheet" href="../CSS/admin-adoption-detail.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:wght@100..900&family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <title>Admin Adopsi - PawPaw Pet Care</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:wght@100..900&family=Nunito:wght@200..1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap">
+  <title>Detail Adopsi - PawPaw Pet Care</title>
 </head>
 <body>
 <div class="app" id="app">
@@ -47,48 +46,15 @@
   </header>
 
   <main class="page-content">
-    <div class="admin-head">
+    <div class="detail-head">
       <div>
-        <h2>PERMINTAAN ADOPSI</h2>
-        <p>Kelola pengajuan adopsi dari pengguna.</p>
+        <h2>DETAIL ADOPSI</h2>
+        <p>Informasi lengkap pengajuan adopsi.</p>
       </div>
+      <a href="admin-adoption.html" class="back-admin">Kembali</a>
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span>Total</span>
-        <strong id="totalData">0</strong>
-      </div>
-      <div class="stat-card waiting">
-        <span>Menunggu</span>
-        <strong id="waitingData">0</strong>
-      </div>
-      <div class="stat-card approved">
-        <span>Disetujui</span>
-        <strong id="approvedData">0</strong>
-      </div>
-      <div class="stat-card rejected">
-        <span>Ditolak</span>
-        <strong id="rejectedData">0</strong>
-      </div>
-    </div>
-
-    <div class="admin-table-wrapper">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Pemohon</th>
-            <th>Nama Hewan</th>
-            <th>Jenis</th>
-            <th>Tanggal Pengajuan</th>
-            <th>Status</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody id="adoptionTable"></tbody>
-      </table>
-    </div>
+    <div id="detailContainer"></div>
   </main>
 
   <footer class="site-footer">
@@ -125,6 +91,6 @@
 </div>
 
 <script src="../JS/main.js"></script>
-<script src="../JS/admin-adoption.js"></script>
+<script src="../JS/admin-adoption-detail.js"></script>
 </body>
 </html>
