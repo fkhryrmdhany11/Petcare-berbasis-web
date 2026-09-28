@@ -1,186 +1,188 @@
-.admin-head {
-  margin-bottom: 1.5rem;
+
+:root {
+  --aa-navy: #0F2747;
+  --aa-blue: #2F6FED;
+  --aa-blue-dark: #1F56C4;
+  --aa-blue-soft: #DCEBFF;
+  --aa-bg: #F2F7FF;
+  --aa-card: #FFFFFF;
+  --aa-text: #14213D;
+  --aa-soft: #6B7A99;
+  --aa-line: #E3ECFA;
+  --aa-radius: 18px;
+  --aa-shadow: 0 8px 24px rgba(15, 39, 71, 0.07);
 }
 
-.admin-head h2 {
-  color: var(--primary);
+body {
+  background: var(--aa-bg);
+  color: var(--aa-text);
+  font-family: "Nunito", "Poppins", sans-serif;
+}
+
+.admin-container {
+  padding: 28px 32px 48px;
+}
+
+.admin-container h1 {
   font-family: "Fredoka", sans-serif;
-  font-size: 1.7rem;
-  margin-bottom: .35rem;
+  font-weight: 600;
+  color: var(--aa-text);
 }
 
-.admin-head p {
-  color: #666;
-  font-size: .9rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-  margin-bottom: 1.5rem;
-}
+/* ---------- Kartu statistik ---------- */
 
 .stat-card {
-  padding: 1rem;
-  border-left: 5px solid var(--secondary);
-  border-radius: 12px;
-  background: #eef6fd;
-  box-shadow: 0 3px 9px rgba(15,40,84,.07);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+  padding: 18px;
+  background: var(--aa-card);
+  border-radius: var(--aa-radius);
+  box-shadow: var(--aa-shadow);
+}
+
+.stat-icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--aa-blue-soft);
+  color: var(--aa-blue-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .stat-card span {
   display: block;
-  margin-bottom: .25rem;
-  color: #666;
-  font-size: .78rem;
+  color: var(--aa-soft);
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
-.stat-card strong {
-  color: var(--primary);
+.stat-card h2 {
+  margin: 2px 0 0;
   font-family: "Fredoka", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--aa-text);
 }
 
-.stat-card.waiting {
-  border-color: #f0ad4e;
-  background: #fff8e8;
+/* warna ikon per status: menunggu, approved, rejected */
+.row > div:nth-child(2) .stat-icon {
+  background: #FFF3DC;
+  color: #E39A11;
 }
 
-.stat-card.approved {
-  border-color: #198754;
-  background: #eefaf4;
+.row > div:nth-child(3) .stat-icon {
+  background: #E6F6EF;
+  color: #1E9E6A;
 }
 
-.stat-card.rejected {
-  border-color: #dc3545;
-  background: #fff1f2;
+.row > div:nth-child(4) .stat-icon {
+  background: #FDE8E8;
+  color: #D9534F;
 }
 
-.admin-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  border: 1px solid #e0e7ef;
-  border-radius: 15px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(15,40,84,.07);
+/* ---------- Kartu tabel ---------- */
+
+.table-card {
+  background: var(--aa-card);
+  border-radius: var(--aa-radius);
+  box-shadow: var(--aa-shadow);
+  overflow: hidden;
 }
 
-.admin-table {
-  width: 100%;
-  min-width: 900px;
-  border-collapse: collapse;
-}
-
-.admin-table th {
-  padding: .9rem .8rem;
-  color: #fff;
-  background: var(--primary);
-  font-family: "Poppins", sans-serif;
-  font-size: .78rem;
-  text-align: left;
-  white-space: nowrap;
-}
-
-.admin-table td {
-  padding: .8rem;
-  border-bottom: 1px solid #e7edf3;
-  color: #444;
-  font-size: .78rem;
-  vertical-align: middle;
-}
-
-.admin-table tbody tr:hover {
-  background: #f8fbff;
-}
-
-.status-badge {
-  display: inline-block;
-  padding: .4rem .6rem;
-  border-radius: 7px;
-  font-size: .7rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.status-waiting {
-  color: #856404;
-  background: #fff3cd;
-}
-
-.status-approved {
-  color: #146c43;
-  background: #d1e7dd;
-}
-
-.status-rejected {
-  color: #842029;
-  background: #f8d7da;
-}
-
-.action-group {
+.table-card-header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 12px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--aa-line);
 }
 
-.action-btn {
-  padding: .4rem .6rem;
+.table-card-header h2 {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.table-card-header p {
+  margin: 2px 0 0;
+  color: var(--aa-soft);
+  font-size: 0.88rem;
+}
+
+.btn-refresh {
   border: none;
-  border-radius: 6px;
+  border-radius: 12px;
+  padding: 9px 16px;
+  background: var(--aa-blue);
   color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: .68rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
-  text-decoration: none;
+  transition: background 0.15s ease;
 }
 
-.btn-detail {
-  background: #4988c4;
+.btn-refresh:hover {
+  background: var(--aa-blue-dark);
 }
 
-.btn-edit {
-  background: #f0ad4e;
+/* ---------- Tabel ---------- */
+
+.adoption-table {
+  min-width: 1150px;
+  margin: 0;
+  font-size: 0.86rem;
 }
 
-.btn-delete {
-  background: #dc3545;
+.adoption-table thead th {
+  padding: 13px 14px;
+  background: #EAF2FF;
+  color: var(--aa-navy);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--aa-line);
 }
 
-.btn-approve {
-  background: #198754;
+.adoption-table tbody td {
+  padding: 13px 14px;
+  color: var(--aa-text);
+  border-bottom: 1px solid var(--aa-line);
+  vertical-align: middle;
+  background: transparent;
 }
 
-.btn-reject {
-  background: #6c757d;
+.adoption-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.action-btn:hover {
-  opacity: .85;
+.adoption-table tbody tr:hover td {
+  background: #F5F9FF;
 }
 
-.empty-admin {
-  padding: 2.5rem 1rem !important;
-  color: #777 !important;
-  text-align: center;
+.loading-data {
+  padding: 32px 0 !important;
+  color: var(--aa-soft);
 }
 
-@media (max-width: 1000px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+/* ---------- Responsif ---------- */
 
 @media (max-width: 800px) {
-  .stats-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 
-@media (max-width: 500px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .admin-container {
+    padding: 20px 16px 40px;
   }
+
 }

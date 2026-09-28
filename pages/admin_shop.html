@@ -120,57 +120,7 @@
   </div>
 
 
-  <main class="container-fluid admin-shell py-4 py-md-5">
-    <section class="admin-summary admin-summary-shop mb-4" aria-label="Ringkasan pesanan toko">
-      <div class="summary-card">
-        <span class="summary-label">Total Pesanan</span>
-        <strong id="totalPesanan">0</strong>
-      </div>
-      <div class="summary-card">
-        <span class="summary-label">Menunggu Diproses</span>
-        <strong id="pesananMenunggu">0</strong>
-      </div>
-      <div class="summary-card">
-        <span class="summary-label">Sedang Diproses</span>
-        <strong id="pesananDiproses">0</strong>
-      </div>
-      <div class="summary-card">
-        <span class="summary-label">Pesanan Selesai</span>
-        <strong id="pesananSelesai">0</strong>
-      </div>
-    </section>
-
-    <section class="card admin-card border-0">
-      <div class="card-header admin-card-header d-flex flex-wrap justify-content-between align-items-center gap-2 py-3">
-        <div>
-          <h2 class="h5 mb-1 fw-bold">Daftar Pesanan Toko</h2>
-          <p class="mb-0 small opacity-75">Pesanan yang dibuat pelanggan melalui halaman checkout.</p>
-        </div>
-        <span class="badge rounded-pill text-bg-light">Shop Orders</span>
-      </div>
-      <div class="card-body p-0">
-        <div class="table-responsive">
-          <table class="table table-hover align-middle mb-0 admin-table">
-            <thead>
-              <tr>
-                <th>No</th>
-                <th>ID Pesanan</th>
-                <th>Username</th>
-                <th>Nama Pemesan</th>
-                <th>Tanggal</th>
-                <th>Item</th>
-                <th>Total</th>
-                <th>Pengiriman</th>
-                <th>Status</th>
-                <th class="text-center">Detail / Aksi</th>
-              </tr>
-            </thead>
-            <tbody id="tabelPesanan"></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  </main>
+  
 
   <div class="modal fade" id="modalPesanan" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">

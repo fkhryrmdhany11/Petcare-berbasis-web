@@ -1,5 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../CSS/admin-adoption.css">
     <link rel="stylesheet" href="../CSS/admin-sidebar.css">
+    <link rel="stylesheet" href="../CSS/admin-adoption-extra.css">
 </head>
+
 <body>
 
     <div class="sb-layout">
@@ -254,48 +257,60 @@
 
     </div>
 
-    <div class="stats-grid">
-      <div class="stat-card">
-        <span>Total</span>
-        <strong id="totalData">0</strong>
-      </div>
-      <div class="stat-card waiting">
-        <span>Menunggu</span>
-        <strong id="waitingData">0</strong>
-      </div>
-      <div class="stat-card approved">
-        <span>Disetujui</span>
-        <strong id="approvedData">0</strong>
-      </div>
-      <div class="stat-card rejected">
-        <span>Ditolak</span>
-        <strong id="rejectedData">0</strong>
-      </div>
+
+    <!-- MODAL KONFIRMASI HAPUS -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-body text-center p-4">
+
+                    <div class="aa-modal-icon">🗑️</div>
+
+                    <h5 class="fw-bold mt-2">Hapus data adopsi?</h5>
+
+                    <p class="text-muted mb-4" id="deleteModalText"></p>
+
+                    <div class="d-flex gap-2 justify-content-center">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Batal
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn btn-danger"
+                            id="confirmDeleteButton"
+                        >
+                            Hapus
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="admin-table-wrapper">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Pemohon</th>
-            <th>Nama Hewan</th>
-            <th>Jenis</th>
-            <th>Tanggal Pengajuan</th>
-            <th>Status</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-        <tbody id="adoptionTable"></tbody>
-      </table>
-    </div>
-  </main>
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
 
     <!-- JavaScript -->
     <script src="../JS/admin-sidebar.js"></script>
     <script src="../JS/admin-adoption.js"></script>
 
-<script src="../JS/main.js"></script>
-<script src="../JS/admin-adoption.js"></script>
 </body>
+
 </html>

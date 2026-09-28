@@ -1,0 +1,99 @@
+/* Tambahan untuk tabel adopsi: badge status, tombol aksi (ikon), teks panjang */
+
+.aa-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.aa-badge.pending {
+  background: #FFF3DC;
+  color: #E39A11;
+}
+
+.aa-badge.approved {
+  background: #E6F6EF;
+  color: #1E9E6A;
+}
+
+.aa-badge.rejected {
+  background: #FDE8E8;
+  color: #D9534F;
+}
+
+.aa-truncate {
+  display: block;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.adoption-table td {
+  vertical-align: middle;
+}
+
+.aa-id {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.aa-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.aa-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.aa-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.aa-btn.edit {
+  background: #DCEBFF;
+  color: #1F56C4;
+}
+
+.aa-btn.edit:hover {
+  background: #2F6FED;
+  color: #fff;
+}
+
+.aa-btn.delete {
+  background: #FDE8E8;
+  color: #D9534F;
+}
+
+.aa-btn.delete:hover:not(:disabled) {
+  background: #D9534F;
+  color: #fff;
+}
+
+.aa-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.aa-empty {
+  text-align: center;
+  color: #6B7A99;
+  padding: 28px 0;
+}
+
+.aa-modal-icon {
+  font-size: 2.4rem;
+}

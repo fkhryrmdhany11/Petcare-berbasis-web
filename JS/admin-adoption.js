@@ -1,172 +1,340 @@
-const table = document.getElementById("adoptionTable");
+// ============================================================
+// DATA DUMMY - nanti bakal diganti dengan data asli dari backend yh
+// ============================================================
 
-function getRequests() {
-  return JSON.parse(localStorage.getItem("adoptionRequests") || "[]");
-}
-
-function saveRequests(data) {
-  localStorage.setItem("adoptionRequests", JSON.stringify(data));
-}
-
-function syncHistory(id, status, updatedData = null) {
-  const history = JSON.parse(localStorage.getItem("adoptionHistory") || "[]");
-  const index = history.findIndex(item => item.id === id);
-
-  if (index !== -1) {
-    history[index] = updatedData
-      ? { ...history[index], ...updatedData, status }
-      : { ...history[index], status };
-
-    localStorage.setItem("adoptionHistory", JSON.stringify(history));
+let adoptionRequests = [
+  {
+    id: "ADP-001",
+    name: "Budi Santoso",
+    pet: "Siti (Anggora)",
+    email: "budi.santoso@email.com",
+    phone: "0812-3456-7801",
+    address: "Jl. Panam Raya No. 12, Tampan, Pekanbaru",
+    reason: "Sudah lama ingin punya kucing, di rumah ada halaman luas dan keluarga sangat mendukung.",
+    status: "pending",
+    date: "2026-09-28"
+  },
+  {
+    id: "ADP-002",
+    name: "Rani Putri",
+    pet: "Noe (Kelinci Rex)",
+    email: "rani.putri@email.com",
+    phone: "0813-2244-5502",
+    address: "Jl. Hangtuah Ujung No. 5, Pekanbaru",
+    reason: "Anak saya suka kelinci dan kami sudah menyiapkan kandang serta pakan yang sesuai.",
+    status: "pending",
+    date: "2026-09-27"
+  },
+  {
+    id: "ADP-003",
+    name: "Dimas Pratama",
+    pet: "Jeno (African Pygmy)",
+    email: "dimas.pratama@email.com",
+    phone: "0852-1122-3303",
+    address: "Jl. Garuda Sakti KM 3, Pekanbaru",
+    reason: "Punya lahan kecil di belakang rumah dan berpengalaman merawat kambing.",
+    status: "approved",
+    date: "2026-09-25"
+  },
+  {
+    id: "ADP-004",
+    name: "Ayu Lestari",
+    pet: "Mochi (Persia)",
+    email: "ayu.lestari@email.com",
+    phone: "0821-9988-7704",
+    address: "Jl. Soekarno Hatta No. 88, Pekanbaru",
+    reason: "Ingin teman untuk kucing saya yang sekarang, sudah rutin vaksin dan steril.",
+    status: "approved",
+    date: "2026-09-24"
+  },
+  {
+    id: "ADP-005",
+    name: "Fajar Nugroho",
+    pet: "Jubariyah (Bengala)",
+    email: "fajar.nugroho@email.com",
+    phone: "0857-6655-4405",
+    address: "Jl. Riau No. 21, Pekanbaru",
+    reason: "Belum punya pengalaman tapi ingin belajar merawat kucing.",
+    status: "rejected",
+    date: "2026-09-23"
+  },
+  {
+    id: "ADP-006",
+    name: "Sinta Dewi",
+    pet: "Luna (Golden Retriever)",
+    email: "sinta.dewi@email.com",
+    phone: "0811-7788-9906",
+    address: "Jl. Arifin Ahmad No. 40, Pekanbaru",
+    reason: "Tinggal di rumah dengan halaman besar dan punya waktu untuk mengajak anjing jalan setiap hari.",
+    status: "approved",
+    date: "2026-09-21"
+  },
+  {
+    id: "ADP-007",
+    name: "Rizky Ramadhan",
+    pet: "Oreo (Kelinci Holland Lop)",
+    email: "rizky.ramadhan@email.com",
+    phone: "0878-3344-5507",
+    address: "Jl. Tuanku Tambusai No. 9, Pekanbaru",
+    reason: "Tinggal di kos dan pemilik kos belum mengizinkan hewan peliharaan.",
+    status: "rejected",
+    date: "2026-09-20"
   }
+];
+
+
+// ============================================================
+// Pengaturan
+// ============================================================
+
+// Data dianggap "selesai" kalau sudah diputuskan (disetujui / ditolak).
+// Hanya data selesai yang boleh dihapus.
+function isSelesai(status) {
+
+  return status === "approved" || status === "rejected";
+
 }
 
-function formatDate(date) {
-  if (!date) return "-";
+const STATUS_LABEL = {
+  pending: "Menunggu",
+  approved: "Disetujui",
+  rejected: "Ditolak"
+};
 
-  return new Date(date).toLocaleDateString("id-ID", {
+const ICON_EDIT = `
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 20h9"/>
+    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+  </svg>
+`;
+
+const ICON_DELETE = `
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+       stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <polyline points="3 6 5 6 21 6"/>
+    <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+    <path d="M10 11v6"/>
+    <path d="M14 11v6"/>
+    <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+  </svg>
+`;
+
+
+// ============================================================
+// Helper
+// ============================================================
+
+function escapeHtml(text) {
+
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+
+}
+
+
+function formatDate(isoDate) {
+
+  return new Date(isoDate).toLocaleDateString("id-ID", {
     day: "numeric",
-    month: "long",
+    month: "short",
     year: "numeric"
   });
+
 }
 
-function statusBadge(status) {
-  if (status === "Disetujui") {
-    return `<span class="status-badge status-approved">Disetujui</span>`;
-  }
 
-  if (status === "Ditolak") {
-    return `<span class="status-badge status-rejected">Ditolak</span>`;
-  }
+function countByStatus(status) {
 
-  return `<span class="status-badge status-waiting">Menunggu Verifikasi</span>`;
+  return adoptionRequests.filter(
+    (request) => request.status === status
+  ).length;
+
 }
 
-function updateStats(data) {
-  document.getElementById("totalData").textContent = data.length;
-  document.getElementById("waitingData").textContent = data.filter(item => item.status === "Menunggu Verifikasi").length;
-  document.getElementById("approvedData").textContent = data.filter(item => item.status === "Disetujui").length;
-  document.getElementById("rejectedData").textContent = data.filter(item => item.status === "Ditolak").length;
+
+// ============================================================
+// Render
+// ============================================================
+
+function renderStats() {
+
+  document.getElementById("totalRequest").textContent =
+    adoptionRequests.length;
+
+  document.getElementById("pendingRequest").textContent =
+    countByStatus("pending");
+
+  document.getElementById("approvedRequest").textContent =
+    countByStatus("approved");
+
+  document.getElementById("rejectedRequest").textContent =
+    countByStatus("rejected");
+
 }
+
 
 function renderTable() {
-  const data = getRequests();
 
-  updateStats(data);
+  const tableBody =
+    document.getElementById("requestTable");
 
-  if (data.length === 0) {
-    table.innerHTML = `
+  if (adoptionRequests.length === 0) {
+
+    tableBody.innerHTML = `
       <tr>
-        <td colspan="7" class="empty-admin">
+        <td colspan="11" class="aa-empty">
           Belum ada permintaan adopsi.
         </td>
       </tr>
     `;
+
     return;
+
   }
 
-  table.innerHTML = data.map((item, index) => {
-    const pending = item.status === "Menunggu Verifikasi";
+  tableBody.innerHTML = adoptionRequests.map((request, index) => {
+
+    const canDelete = isSelesai(request.status);
 
     return `
       <tr>
+
         <td>${index + 1}</td>
-        <td><strong>${item.nama || "-"}</strong></td>
-        <td>${item.hewan || "-"}</td>
-        <td>${item.jenis || "-"}</td>
-        <td>${formatDate(item.tanggal)}</td>
-        <td>${statusBadge(item.status)}</td>
+
+        <td class="aa-id">${escapeHtml(request.id)}</td>
+
+        <td>${escapeHtml(request.name)}</td>
+
+        <td>${escapeHtml(request.pet)}</td>
+
+        <td>${escapeHtml(request.email)}</td>
+
+        <td>${escapeHtml(request.phone)}</td>
+
         <td>
-          <div class="action-group">
-            <a href="admin-adoption-detail.html?id=${item.id}" class="action-btn btn-detail">Detail</a>
-            <button class="action-btn btn-edit" onclick="editData(${item.id})">Edit</button>
-            <button class="action-btn btn-delete" onclick="hapusData(${item.id})">Hapus</button>
-            ${pending ? `
-              <button class="action-btn btn-approve" onclick="ubahStatus(${item.id}, 'Disetujui')">Acc</button>
-              <button class="action-btn btn-reject" onclick="ubahStatus(${item.id}, 'Ditolak')">Tolak</button>
-            ` : ""}
+          <span class="aa-truncate" title="${escapeHtml(request.address)}">
+            ${escapeHtml(request.address)}
+          </span>
+        </td>
+
+        <td>
+          <span class="aa-truncate" title="${escapeHtml(request.reason)}">
+            ${escapeHtml(request.reason)}
+          </span>
+        </td>
+
+        <td>
+          <span class="aa-badge ${request.status}">
+            ${STATUS_LABEL[request.status]}
+          </span>
+        </td>
+
+        <td>${formatDate(request.date)}</td>
+
+        <td>
+          <div class="aa-actions">
+
+            <a
+              href="admin-adoption-detail.html?id=${encodeURIComponent(request.id)}"
+              class="aa-btn edit"
+              title="Edit / lihat detail"
+              aria-label="Edit ${escapeHtml(request.id)}"
+            >
+              ${ICON_EDIT}
+            </a>
+
+            <button
+              type="button"
+              class="aa-btn delete"
+              data-id="${escapeHtml(request.id)}"
+              title="${canDelete ? "Hapus data" : "Hanya data selesai yang bisa dihapus"}"
+              aria-label="Hapus ${escapeHtml(request.id)}"
+              ${canDelete ? "" : "disabled"}
+            >
+              ${ICON_DELETE}
+            </button>
+
           </div>
         </td>
+
       </tr>
     `;
+
   }).join("");
+
 }
 
-function ubahStatus(id, status) {
-  const data = getRequests();
-  const index = data.findIndex(item => item.id === id);
 
-  if (index === -1) return;
+// Dipanggil oleh tombol Refresh di HTML (onclick="loadAdoptionData()")
+function loadAdoptionData() {
 
-  data[index].status = status;
-  saveRequests(data);
-  syncHistory(id, status);
+  renderStats();
 
-  alert(`Pengajuan ${data[index].hewan} berhasil ${status === "Disetujui" ? "disetujui" : "ditolak"}.`);
   renderTable();
+
 }
 
-function hapusData(id) {
-  const data = getRequests();
-  const item = data.find(item => item.id === id);
 
-  if (!item) return;
+// ============================================================
+// Hapus data (dengan modal konfirmasi)
+// ============================================================
 
-  if (!confirm(`Hapus pengajuan adopsi ${item.hewan}?`)) return;
+const deleteModal =
+  new bootstrap.Modal(document.getElementById("deleteModal"));
 
-  const newData = data.filter(item => item.id !== id);
-  saveRequests(newData);
+const deleteModalText =
+  document.getElementById("deleteModalText");
 
-  const history = JSON.parse(localStorage.getItem("adoptionHistory") || "[]");
-  localStorage.setItem(
-    "adoptionHistory",
-    JSON.stringify(history.filter(item => item.id !== id))
+const confirmDeleteButton =
+  document.getElementById("confirmDeleteButton");
+
+let pendingDeleteId = null;
+
+
+document.getElementById("requestTable").addEventListener("click", (event) => {
+
+  const deleteButton =
+    event.target.closest(".aa-btn.delete");
+
+  if (!deleteButton || deleteButton.disabled) {
+    return;
+  }
+
+  pendingDeleteId = deleteButton.dataset.id;
+
+  const request = adoptionRequests.find(
+    (item) => item.id === pendingDeleteId
   );
 
-  renderTable();
-}
+  deleteModalText.textContent =
+    `Data ${request.id} atas nama ${request.name} akan dihapus dan tidak bisa dikembalikan.`;
 
-function editData(id) {
-  const data = getRequests();
-  const item = data.find(item => item.id === id);
+  deleteModal.show();
 
-  if (!item) return;
+});
 
-  const nama = prompt("Nama lengkap:", item.nama);
-  if (nama === null) return;
 
-  const email = prompt("Email:", item.email);
-  if (email === null) return;
+confirmDeleteButton.addEventListener("click", () => {
 
-  const telepon = prompt("Nomor telepon:", item.telepon);
-  if (telepon === null) return;
+  adoptionRequests = adoptionRequests.filter(
+    (request) => request.id !== pendingDeleteId
+  );
 
-  const alamat = prompt("Alamat:", item.alamat);
-  if (alamat === null) return;
+  pendingDeleteId = null;
 
-  const alasan = prompt("Alasan adopsi:", item.alasan);
-  if (alasan === null) return;
+  deleteModal.hide();
 
-  Object.assign(item, {
-    nama: nama.trim(),
-    email: email.trim(),
-    telepon: telepon.trim(),
-    alamat: alamat.trim(),
-    alasan: alasan.trim()
-  });
+  loadAdoptionData();
 
-  saveRequests(data);
+});
 
-  syncHistory(id, item.status, {
-    nama: item.nama,
-    email: item.email,
-    telepon: item.telepon,
-    alamat: item.alamat,
-    alasan: item.alasan
-  });
 
-  renderTable();
-}
+// ============================================================
+// Render awal
+// ============================================================
 
-renderTable();
+loadAdoptionData();
