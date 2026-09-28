@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +25,6 @@
     <link rel="stylesheet" href="../CSS/admin-adoption.css">
     <link rel="stylesheet" href="../CSS/admin-sidebar.css">
 </head>
-
 <body>
 
     <div class="sb-layout">
@@ -256,16 +254,48 @@
 
     </div>
 
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span>Total</span>
+        <strong id="totalData">0</strong>
+      </div>
+      <div class="stat-card waiting">
+        <span>Menunggu</span>
+        <strong id="waitingData">0</strong>
+      </div>
+      <div class="stat-card approved">
+        <span>Disetujui</span>
+        <strong id="approvedData">0</strong>
+      </div>
+      <div class="stat-card rejected">
+        <span>Ditolak</span>
+        <strong id="rejectedData">0</strong>
+      </div>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <div class="admin-table-wrapper">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Nama Pemohon</th>
+            <th>Nama Hewan</th>
+            <th>Jenis</th>
+            <th>Tanggal Pengajuan</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="adoptionTable"></tbody>
+      </table>
+    </div>
+  </main>
 
     <!-- JavaScript -->
     <script src="../JS/admin-sidebar.js"></script>
     <script src="../JS/admin-adoption.js"></script>
 
+<script src="../JS/main.js"></script>
+<script src="../JS/admin-adoption.js"></script>
 </body>
-
 </html>
