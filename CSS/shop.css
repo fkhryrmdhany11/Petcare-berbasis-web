@@ -401,3 +401,37 @@
     animation-duration: 0.01ms;
   }
 }
+
+
+.shop-heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shop-page .shop-history-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid #1c4d8d;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #1c4d8d;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.shop-page .shop-history-link:hover {
+  background: #e8f1fa;
+  color: #0f2854;
+}
+
+@media (max-width: 800px) {
+  .shop-heading-actions {
+    justify-content: flex-start;
+  }
+}
