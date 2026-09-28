@@ -24,196 +24,231 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../CSS/admin-adoption.css">
+    <link rel="stylesheet" href="../CSS/admin-sidebar.css">
 </head>
 
 <body>
 
-    <div class="admin-container">
+    <div class="sb-layout">
 
-        <!-- HEADER -->
-        <div class="admin-header">
+        <div class="sb-overlay" id="sbOverlay"></div>
 
-            <div>
-                <span class="admin-label">
-                    PAWPAW PET CARE
-                </span>
+        <!-- SIDEBAR -->
+        <aside class="sb-sidebar" id="sbSidebar">
 
-                <h1>
-                    Permintaan Adopsi
-                </h1>
-
-                <p>
-                    Kelola data permintaan adopsi hewan.
-                </p>
+            <div class="sb-brand">
+                <img src="../assets/img/logo.png" alt="Logo PawPaw Pet Care">
+                <span>PawPaw Admin</span>
             </div>
 
-            <a href="adoption.html" class="btn-back">
-                ← Kembali
-            </a>
+            <nav class="sb-nav">
+                <a href="../admin-dashboard.html">📊 Dashboard</a>
+                <a href="admin_shop.html">🛍️ Pesanan Toko</a>
+                <a href="admin-adoption.html" class="active">🐶 Adopsi</a>
+                <a href="admin.html">📅 Booking</a>
+            </nav>
 
-        </div>
+            <div class="sb-footer">
+                <a href="shop.html">← Kembali ke Toko</a>
+                <a href="login.html">↩ Keluar</a>
+            </div>
+
+        </aside>
 
 
-        <!-- STATISTIK -->
-        <div class="row g-4 mb-4">
+        <div class="sb-content">
 
-            <!-- TOTAL -->
-            <div class="col-md-6 col-lg-3">
+            <div class="admin-container">
 
-                <div class="stat-card">
+                <!-- JUDUL HALAMAN -->
+                <div class="d-flex align-items-center gap-3 mb-4">
 
-                    <div class="stat-icon">
-                        📋
-                    </div>
+                    <button
+                        type="button"
+                        class="sb-menu-button"
+                        id="sbMenuButton"
+                        aria-label="Buka menu"
+                    >
+                        ☰
+                    </button>
 
                     <div>
-                        <span>Total Pengajuan</span>
-                        <h2 id="totalRequest">0</h2>
+                        <h1 class="h4 fw-bold mb-1">
+                            Permintaan Adopsi
+                        </h1>
+
+                        <p class="text-muted mb-0">
+                            Kelola data permintaan adopsi hewan.
+                        </p>
                     </div>
 
                 </div>
 
-            </div>
 
+                <!-- STATISTIK -->
+                <div class="row g-4 mb-4">
 
-            <!-- MENUNGGU -->
-            <div class="col-md-6 col-lg-3">
+                    <!-- TOTAL -->
+                    <div class="col-md-6 col-lg-3">
 
-                <div class="stat-card">
+                        <div class="stat-card">
 
-                    <div class="stat-icon">
-                        ⏳
+                            <div class="stat-icon">
+                                📋
+                            </div>
+
+                            <div>
+                                <span>Total Pengajuan</span>
+                                <h2 id="totalRequest">0</h2>
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div>
-                        <span>Menunggu Review</span>
-                        <h2 id="pendingRequest">0</h2>
+
+                    <!-- MENUNGGU -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ⏳
+                            </div>
+
+                            <div>
+                                <span>Menunggu Review</span>
+                                <h2 id="pendingRequest">0</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- APPROVED -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ✓
+                            </div>
+
+                            <div>
+                                <span>Approved</span>
+                                <h2 id="approvedRequest">0</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- REJECTED -->
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="stat-card">
+
+                            <div class="stat-icon">
+                                ✕
+                            </div>
+
+                            <div>
+                                <span>Rejected</span>
+                                <h2 id="rejectedRequest">0</h2>
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-            </div>
 
+                <!-- TABLE -->
+                <div class="table-card">
 
-            <!-- APPROVED -->
-            <div class="col-md-6 col-lg-3">
+                    <!-- TABLE HEADER -->
+                    <div class="table-card-header">
 
-                <div class="stat-card">
+                        <div>
+                            <h2>
+                                Data Permintaan Adopsi
+                            </h2>
 
-                    <div class="stat-icon">
-                        ✓
+                            <p>
+                                Daftar pengajuan adopsi yang masuk.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="btn-refresh"
+                            onclick="loadAdoptionData()"
+                        >
+                            ↻ Refresh
+                        </button>
+
                     </div>
 
-                    <div>
-                        <span>Approved</span>
-                        <h2 id="approvedRequest">0</h2>
+
+                    <!-- TABLE RESPONSIVE -->
+                    <div class="table-responsive">
+
+                        <table class="table adoption-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>NO</th>
+
+                                    <th>ID</th>
+
+                                    <th>PEMOHON</th>
+
+                                    <th>HEWAN</th>
+
+                                    <th>EMAIL</th>
+
+                                    <th>NO. HP</th>
+
+                                    <th>ALAMAT</th>
+
+                                    <th>ALASAN</th>
+
+                                    <th>STATUS</th>
+
+                                    <th>TANGGAL</th>
+
+                                    <th>AKSI</th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="requestTable">
+
+                                <tr>
+
+                                    <td
+                                        colspan="11"
+                                        class="text-center loading-data"
+                                    >
+                                        Memuat data...
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
                     </div>
 
                 </div>
-
-            </div>
-
-
-            <!-- REJECTED -->
-            <div class="col-md-6 col-lg-3">
-
-                <div class="stat-card">
-
-                    <div class="stat-icon">
-                        ✕
-                    </div>
-
-                    <div>
-                        <span>Rejected</span>
-                        <h2 id="rejectedRequest">0</h2>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- TABLE -->
-        <div class="table-card">
-
-            <!-- TABLE HEADER -->
-            <div class="table-card-header">
-
-                <div>
-                    <h2>
-                        Data Permintaan Adopsi
-                    </h2>
-
-                    <p>
-                        Daftar pengajuan adopsi yang masuk.
-                    </p>
-                </div>
-
-                <button
-                    type="button"
-                    class="btn-refresh"
-                    onclick="loadAdoptionData()"
-                >
-                    ↻ Refresh
-                </button>
-
-            </div>
-
-
-            <!-- TABLE RESPONSIVE -->
-            <div class="table-responsive">
-
-                <table class="table adoption-table">
-
-                    <thead>
-
-                        <tr>
-
-                            <th>NO</th>
-
-                            <th>ID</th>
-
-                            <th>PEMOHON</th>
-
-                            <th>HEWAN</th>
-
-                            <th>EMAIL</th>
-
-                            <th>NO. HP</th>
-
-                            <th>ALAMAT</th>
-
-                            <th>ALASAN</th>
-
-                            <th>STATUS</th>
-
-                            <th>TANGGAL</th>
-
-                            <th>AKSI</th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="requestTable">
-
-                        <tr>
-
-                            <td
-                                colspan="11"
-                                class="text-center loading-data"
-                            >
-                                Memuat data...
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
 
             </div>
 
@@ -228,6 +263,7 @@
     </script>
 
     <!-- JavaScript -->
+    <script src="../JS/admin-sidebar.js"></script>
     <script src="../JS/admin-adoption.js"></script>
 
 </body>

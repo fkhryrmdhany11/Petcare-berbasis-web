@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
       
-  const DASHBOARD_URL = "index.html";
+  
+  const CUSTOMER_DASHBOARD_URL = "index.html";
+
+  const ADMIN_DASHBOARD_URL = "dashboard-admin.html";
+
+  const ADMIN_EMAILS = ["admin@pawpaw.com"];
+
+  let redirectUrl = CUSTOMER_DASHBOARD_URL;
 
   const authFlip =
     document.getElementById("authFlip");
@@ -178,6 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginSuccessOkButton =
     document.getElementById("loginSuccessOkButton");
 
+  const loginSuccessText =
+    document.getElementById("loginSuccessText");
+
 
   loginForm.addEventListener("submit", (event) => {
 
@@ -189,8 +199,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    loginMessage.textContent = "";
+        loginMessage.textContent = "";
     loginMessage.className = "auth-message";
+
+    const loginEmail =
+      document.getElementById("loginEmail").value.trim().toLowerCase();
+
+    const isAdmin =
+      ADMIN_EMAILS.includes(loginEmail);
+
+    redirectUrl =
+      isAdmin ? ADMIN_DASHBOARD_URL : CUSTOMER_DASHBOARD_URL;
+
+    loginSuccessText.textContent =
+      isAdmin
+        ? "Selamat datang, Admin! Yuk lanjut ke dashboard admin."
+        : "Selamat datang kembali, yuk lanjut ke dashboard.";
 
     launchPawConfetti();
 
@@ -205,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loginSuccessModal.hide();
 
-    window.location.href = DASHBOARD_URL;
+      window.location.href = redirectUrl;
 
   });
 
