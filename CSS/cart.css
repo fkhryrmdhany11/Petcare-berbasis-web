@@ -163,3 +163,196 @@
     from { opacity: 0; transform: translateY(12px) scale(.97); }
     to { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+
+/* Animasi penutupan otomatis pop-up checkout */
+.checkout-success-modal.closing {
+    animation: checkoutOverlayOut .35s ease forwards;
+}
+
+.checkout-success-modal.closing .checkout-success-card {
+    animation: checkoutPopupOut .35s ease forwards;
+}
+
+@keyframes checkoutPopupOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(10px) scale(.97); }
+}
+
+@keyframes checkoutOverlayOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Riwayat pesanan customer */
+.order-history-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.order-history-toolbar {
+    display: flex;
+    align-items: end;
+    gap: 12px;
+    padding: 18px;
+    border: 1px solid #d9e7f4;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 10px 26px rgba(15, 40, 84, .07);
+}
+
+.order-history-toolbar .history-user-field {
+    flex: 1 1 320px;
+}
+
+.order-history-list {
+    display: grid;
+    gap: 18px;
+}
+
+.order-history-card {
+    overflow: hidden;
+    border: 1px solid #d9e7f4;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 12px 30px rgba(15, 40, 84, .08);
+}
+
+.order-history-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 20px;
+    background: #f7fbff;
+    border-bottom: 1px solid #e2edf6;
+}
+
+.order-history-id {
+    color: #0f2854;
+    font-size: 1.02rem;
+    font-weight: 700;
+}
+
+.order-history-date {
+    margin-top: 4px;
+    color: #70819e;
+    font-size: .88rem;
+}
+
+.order-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: .82rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.order-status.waiting {
+    background: #fff2cc;
+    color: #856404;
+}
+
+.order-status.processing {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.order-status.done {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.order-history-body {
+    padding: 20px;
+}
+
+.order-history-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.order-history-meta > div {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: #f7fbff;
+}
+
+.order-history-meta small {
+    display: block;
+    margin-bottom: 3px;
+    color: #72819a;
+}
+
+.order-history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 11px 0;
+    border-bottom: 1px solid #e8eff6;
+}
+
+.order-history-item:last-child {
+    border-bottom: 0;
+}
+
+.order-history-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 2px solid #eef3f8;
+    color: #0f2854;
+    font-size: 1.1rem;
+}
+
+.order-history-empty {
+    padding: 44px 22px;
+    border: 1px dashed #b8cbdd;
+    border-radius: 18px;
+    background: rgba(255,255,255,.75);
+    color: #61708f;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .order-history-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .order-history-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .order-history-head {
+        flex-direction: column;
+    }
+}
+
+/* Identitas customer aktif pada riwayat pesanan */
+.history-current-user {
+    display: inline-block;
+    color: #0f2854;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.order-history-meta-single {
+    grid-template-columns: 1fr;
+}
+
+/* Username checkout mengikuti akun yang sedang login */
+.account-username-field[readonly] {
+    background: #f4f8fc;
+    color: #0f2854;
+    font-weight: 600;
+    cursor: not-allowed;
+}

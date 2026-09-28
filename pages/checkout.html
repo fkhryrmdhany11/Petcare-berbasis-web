@@ -77,9 +77,13 @@
                             <h3 class="h5 mb-4">Data pemesan</h3>
                             <form id="checkout-form">
                                 <div class="mb-3">
-                                    <label class="form-label" for="customer-username">Username</label><input
-                                        class="form-control" id="customer-username" name="username" maxlength="40" required
-                                        autocomplete="username" placeholder="Contoh: fakhry11" />
+                                    <label class="form-label" for="customer-username">Username akun</label>
+                                    <input class="form-control account-username-field" id="customer-username" name="username"
+                                        maxlength="40" readonly aria-readonly="true" />
+                                    <div class="form-text">Username diambil otomatis dari akun yang sedang login dan tidak dapat diubah saat checkout.</div>
+                                    <div id="checkout-account-warning" class="alert alert-warning mt-2 mb-0 py-2" hidden>
+                                        Tidak ada akun customer yang sedang login. <a href="../login.html" class="alert-link">Login terlebih dahulu</a> untuk checkout.
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="customer-name">Nama</label><input
@@ -141,11 +145,12 @@
             <div class="checkout-success-icon" aria-hidden="true">✓</div>
             <h3 id="checkout-success-title">Pesanan berhasil dibuat</h3>
             <p id="checkout-success-message">Pesanan berhasil disimpan.</p>
-            <p class="checkout-success-redirect">Anda akan diarahkan kembali ke halaman toko.</p>
+            <p class="checkout-success-redirect">Notifikasi akan tertutup otomatis dan Anda akan kembali ke halaman toko.</p>
             <a class="btn btn-pawpaw w-100" href="shop.html">Kembali ke Toko Sekarang</a>
         </div>
     </div>
 
+    <script src="../JS/account.js"></script>
     <script src="../JS/main.js"></script>
     <script src="../JS/cart.js"></script>
 </body>

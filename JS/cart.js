@@ -36,6 +36,7 @@
         }).format(value);
 
     const $ = (selector) => document.querySelector(selector);
+    const account = window.PawPawAccount;
 
     function getCart() {
         try {
@@ -186,7 +187,11 @@
         if (go) go.classList.toggle("disabled", subtotal === 0);
 
         const pay = $("#place-order");
-        if (pay) pay.disabled = subtotal === 0;
+        if (pay) {
+            const checkoutNeedsAccount = Boolean($("#checkout-form"));
+            const hasAccount = Boolean(account?.getUsername?.());
+            pay.disabled = subtotal === 0 || (checkoutNeedsAccount && !hasAccount);
+        }
 
         const address = $("#delivery-address");
         if (address && delivery) {
@@ -300,6 +305,19 @@
 
     const form = $("#checkout-form");
     if (form) {
+        const usernameField = $("#customer-username");
+        const accountWarning = $("#checkout-account-warning");
+        const activeUsername = account?.getUsername?.() || "";
+
+        if (usernameField) {
+            usernameField.value = activeUsername;
+            usernameField.placeholder = activeUsername ? "" : "Belum login";
+        }
+        if (accountWarning) accountWarning.hidden = Boolean(activeUsername);
+
+        const placeOrderButton = $("#place-order");
+        if (placeOrderButton && !activeUsername) placeOrderButton.disabled = true;
+
         form.addEventListener("submit", (event) => {
             event.preventDefault();
             if (!form.reportValidity()) return;
@@ -311,14 +329,16 @@
                 return;
             }
 
-            const username = $("#customer-username").value.trim();
+            const username = account?.getUsername?.() || "";
             const name = $("#customer-name").value.trim();
             const phone = $("#customer-phone").value.trim();
             const deliveryMethod = delivery ? delivery.value : "pickup";
             const address = $("#delivery-address")?.value.trim() || "";
 
             if (!username) {
-                $("#customer-username").focus();
+                if (accountWarning) accountWarning.hidden = false;
+                alert("Silakan login terlebih dahulu. Username checkout harus mengikuti akun yang sedang aktif.");
+                window.location.href = "../login.html";
                 return;
             }
             if (!name) {
@@ -375,11 +395,21 @@
                 message.textContent =
                     "Pesanan " + orderId + " atas username " + username + " berhasil disimpan dengan total " + rupiah(total) + ".";
             }
-            if (modal) modal.hidden = false;
+            if (modal) {
+                modal.classList.remove("closing");
+                modal.hidden = false;
+
+                // Tutup notifikasi secara otomatis, lalu kembali ke halaman Shop.
+                window.setTimeout(() => modal.classList.add("closing"), 1700);
+                window.setTimeout(() => {
+                    modal.hidden = true;
+                    modal.classList.remove("closing");
+                }, 2050);
+            }
 
             window.setTimeout(() => {
                 window.location.href = "shop.html";
-            }, 2200);
+            }, 2250);
         });
     }
 
