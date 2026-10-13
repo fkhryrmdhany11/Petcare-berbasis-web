@@ -109,6 +109,8 @@ body {
   color: #fff;
   background-color: var(--primary);
   transition: width 0.25s ease;
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .app.sidebar-collapsed .sidebar {
@@ -161,9 +163,10 @@ body {
   padding: 0.85rem 0;
   overflow: hidden;
   color: #fff;
+  align-items: center;
   text-align: center;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 16px;
   font-weight: 700;
   white-space: nowrap;
   text-overflow: ellipsis;

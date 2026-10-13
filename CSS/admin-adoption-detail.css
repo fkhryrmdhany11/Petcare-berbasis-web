@@ -1,193 +1,130 @@
-.detail-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.detail-head h2 {
-  color: var(--primary);
-  font-family: "Fredoka", sans-serif;
-  font-size: 1.7rem;
-  margin-bottom: .35rem;
-}
-
-.detail-head p {
-  color: #666;
-  font-size: .9rem;
-}
-
-.back-admin {
-  padding: .7rem 1.1rem;
-  border-radius: 10px;
+.adoption-header {
+  background: var(--admin-secondary) !important;
   color: #fff;
-  background: var(--secondary);
-  font-size: .85rem;
-  font-weight: 700;
-  text-decoration: none;
 }
 
-.detail-grid {
+.adoption-detail {
   display: grid;
   grid-template-columns: 300px 1fr;
-  gap: 20px;
+  gap: 24px;
 }
 
-.detail-pet {
+.adoption-pet {
   overflow: hidden;
+  border: 1px solid #e2ebf4;
   border-radius: 16px;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(15,40,84,.08);
+  height: fit-content;
 }
 
-.detail-pet img {
+.adoption-pet-placeholder {
   width: 100%;
-  height: 270px;
-  display: block;
-  object-fit: cover;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #1c4d8d;
+  background: #eef6fd;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.detail-pet-info {
-  padding: 1rem;
+.adoption-pet-placeholder i {
+  font-size: 70px;
 }
 
-.detail-pet-info h3 {
-  color: var(--primary);
-  font-family: "Fredoka", sans-serif;
-  font-size: 1.35rem;
-  margin-bottom: .6rem;
+.adoption-pet-info {
+  padding: 18px;
 }
 
-.detail-pet-info p {
-  margin-bottom: .3rem;
-  color: #555;
-  font-size: .82rem;
-}
-
-.detail-box {
-  padding: 1.3rem;
-  border: 1px solid #e2e9f1;
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(15,40,84,.07);
-}
-
-.detail-box h3 {
-  margin-bottom: 1rem;
-  color: var(--primary);
-  font-family: "Fredoka", sans-serif;
+.adoption-pet-info h3 {
+  margin: 0 0 14px;
+  color: var(--admin-primary);
   font-size: 1.2rem;
+  font-weight: 700;
 }
 
-.detail-row {
+.adoption-pet-info p {
+  margin: 0 0 9px;
+  color: #52637d;
+  font-size: .85rem;
+}
+
+.adoption-data {
+  padding: 20px;
+  border: 1px solid #e2ebf4;
+  border-radius: 16px;
+  background: #f8fbfe;
+}
+
+.adoption-data h3 {
+  margin: 0 0 18px;
+  color: var(--admin-primary);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.adoption-row {
   display: grid;
   grid-template-columns: 160px 1fr;
-  gap: 10px;
-  padding: .6rem 0;
-  border-bottom: 1px solid #edf1f5;
-  font-size: .82rem;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e2ebf4;
 }
 
-.detail-row:last-child {
-  border-bottom: none;
+.adoption-row:last-child {
+  border-bottom: 0;
 }
 
-.detail-label {
-  color: #777;
-  font-weight: 700;
+.adoption-label {
+  color: #73839c;
+  font-size: .85rem;
+  font-weight: 600;
 }
 
-.detail-value {
-  color: #333;
+.adoption-value {
+  color: #263954;
+  font-size: .88rem;
+  word-break: break-word;
 }
 
-.detail-status {
-  display: inline-block;
-  width: fit-content;
-  padding: .4rem .7rem;
-  border-radius: 7px;
-  font-size: .72rem;
-  font-weight: 700;
-}
-
-.waiting {
-  color: #856404;
-  background: #fff3cd;
-}
-
-.approved {
-  color: #146c43;
-  background: #d1e7dd;
-}
-
-.rejected {
-  color: #842029;
-  background: #f8d7da;
-}
-
-.detail-actions {
+.adoption-actions {
   display: flex;
-  gap: 8px;
-  margin-top: 1.2rem;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #e2ebf4;
 }
 
-.detail-action {
-  padding: .65rem 1rem;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: .78rem;
-  font-weight: 700;
-  cursor: pointer;
+.adoption-actions .btn {
+  padding: 9px 18px;
+  font-size: .85rem;
+  font-weight: 600;
 }
 
-.approve-btn {
-  background: #198754;
-}
-
-.reject-btn {
-  background: #dc3545;
-}
-
-.empty-detail {
-  padding: 3rem;
-  border-radius: 15px;
-  color: #777;
-  text-align: center;
-  background: #f8fafc;
-}
-
-@media (max-width: 800px) {
-  .detail-head {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .back-admin {
-    width: 100%;
-    text-align: center;
-  }
-
-  .detail-grid {
+@media (max-width: 900px) {
+  .adoption-detail {
     grid-template-columns: 1fr;
   }
 
-  .detail-pet img {
-    height: 230px;
+  .adoption-pet {
+    max-width: 360px;
   }
+}
 
-  .detail-row {
+@media (max-width: 600px) {
+  .adoption-row {
     grid-template-columns: 1fr;
-    gap: 3px;
+    gap: 4px;
   }
 
-  .detail-actions {
+  .adoption-actions {
     flex-direction: column;
   }
 
-  .detail-action {
+  .adoption-actions .btn {
     width: 100%;
   }
 }

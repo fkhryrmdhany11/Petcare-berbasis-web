@@ -59,7 +59,6 @@
         try {
             localStorage.setItem(CART_KEY, JSON.stringify(cart));
         } catch {
-            // Browser private mode dapat memblokir localStorage.
         }
         render();
     }
