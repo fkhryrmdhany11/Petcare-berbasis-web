@@ -11,7 +11,7 @@
       action="{{ $editProduct ? route('admin.products.update', $editProduct->product_id) : route('admin.products.store') }}"
       method="POST"
       enctype="multipart/form-data"
-      class="row g-3"
+      class="row g-3 mb-3"
     >
       @csrf
       <div class="col-md-3">

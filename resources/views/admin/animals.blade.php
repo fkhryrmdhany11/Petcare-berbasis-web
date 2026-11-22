@@ -11,7 +11,7 @@
       action="{{ $editAnimal ? route('admin.animals.update', $editAnimal->animal_id) : route('admin.animals.store') }}"
       method="POST"
       enctype="multipart/form-data"
-      class="row g-3"
+      class="row g-3 mb-3"
     >
       @csrf
       <div class="col-md-3">

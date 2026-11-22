@@ -50,7 +50,7 @@
     </div>
 
     <div id="tabQuickProduct" data-quick-panel>
-      <form action="{{ route('admin.quick-action') }}" method="POST" class="row g-3">
+      <form action="{{ route('admin.quick-action') }}" method="POST" class="row g-3 mb-3">
         @csrf
         <input type="hidden" name="action_type" value="product">
         <div class="col-md-4">
