@@ -1,0 +1,687 @@
+/* ==========================================================================
+   PAWPAW PET CARE — CONSOLIDATED ADMIN PANEL STYLESHEET (admin.css)
+   Menggabungkan: admin-sidebar, dashboard-admin, admin-crud, admin,
+   admin-booking-theme, admin-adoption, dan admin-adoption-detail.
+   ========================================================================== */
+
+:root {
+  --sb-navy: #0f2747;
+  --sb-blue: #2f6fed;
+  --sb-text: #b8c7e3;
+  --ad-navy: #0f2747;
+  --ad-blue: #2f6fed;
+  --ad-blue-dark: #1f56c4;
+  --ad-blue-soft: #dcebff;
+  --ad-bg: #f2f7ff;
+  --ad-card: #ffffff;
+  --ad-text: #14213d;
+  --ad-text-soft: #6b7a99;
+  --ad-line: #e3ecfa;
+  --ad-green: #1e9e6a;
+  --ad-amber: #e39a11;
+  --ad-red: #d9534f;
+  --ad-radius: 18px;
+  --ad-shadow: 0 8px 24px rgba(15, 39, 71, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ad-bg);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: var(--ad-text);
+}
+
+body,
+p,
+li,
+td,
+input,
+select,
+textarea {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+th,
+label,
+button,
+.btn,
+strong,
+b,
+.fw-bold,
+.fw-semibold {
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 600 !important;
+}
+
+/* =========================
+   1. SIDEBAR & LAYOUT ADMIN
+========================= */
+.sb-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sb-sidebar {
+  width: 245px;
+  flex-shrink: 0;
+  background: var(--sb-navy);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  transition: width 0.25s ease, padding 0.25s ease;
+}
+
+.sb-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 8px 22px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 14px;
+}
+
+.sb-brand-logo {
+  width: 82px;
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 18px;
+  transition: width 0.25s ease, height 0.25s ease;
+}
+
+.sb-brand-logo img {
+  width: 175px;
+  height: 145%;
+  object-fit: contain;
+}
+
+.sb-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sb-nav a,
+.sb-footer a,
+.sb-footer button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--sb-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sb-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.sb-layout.sb-collapsed .sb-sidebar {
+  width: 84px;
+  padding: 20px 10px;
+}
+
+.sb-layout.sb-collapsed .sb-brand-logo {
+  width: 56px;
+  height: 56px;
+}
+
+.sb-layout.sb-collapsed .sb-label {
+  display: none;
+}
+
+.sb-layout.sb-collapsed .sb-nav a,
+.sb-layout.sb-collapsed .sb-footer a,
+.sb-layout.sb-collapsed .sb-footer button {
+  justify-content: center;
+  padding: 12px 6px;
+}
+
+.sb-layout.sb-collapsed .sb-icon {
+  width: auto;
+  font-size: 1.45rem;
+}
+
+.sb-nav a:hover,
+.sb-footer a:hover,
+.sb-footer button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.sb-nav a.active {
+  background: var(--sb-blue);
+  color: #fff;
+}
+
+.sb-footer {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-main {
+  flex: 1;
+  min-width: 0;
+  padding: 28px 32px 48px;
+}
+
+.admin-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.admin-topbar h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ad-text);
+}
+
+.admin-topbar p {
+  margin: 2px 0 0;
+  color: var(--ad-text-soft);
+  font-size: 0.92rem;
+}
+
+.sb-overlay {
+  display: none;
+}
+
+.sb-menu-button {
+  display: none;
+  border: none;
+  background: #fff;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(15, 39, 71, 0.12);
+}
+
+/* =========================
+   2. STAT CARDS & DASHBOARD PANELS
+========================= */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--ad-card);
+  border-radius: var(--ad-radius);
+  padding: 18px 20px;
+  box-shadow: var(--ad-shadow);
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--ad-line);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(47, 111, 237, 0.14);
+  color: inherit;
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--ad-blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.stat-label {
+  color: var(--ad-text-soft);
+  font-size: 0.86rem;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel,
+.crud-panel {
+  background: var(--ad-card);
+  border-radius: var(--ad-radius);
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: var(--ad-shadow);
+  border: 1px solid var(--ad-line);
+}
+
+.panel-header,
+.crud-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.panel-header h2,
+.crud-panel-heading h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.panel-count {
+  background: var(--ad-blue);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.panel-link {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ad-blue);
+  text-decoration: none;
+}
+
+.action-item,
+.schedule-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--ad-line);
+}
+
+.action-item:last-child,
+.schedule-item:last-child {
+  border-bottom: none;
+}
+
+.type-badge {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.type-badge.adopsi { background: #e6f6ef; color: var(--ad-green); }
+.type-badge.pesanan { background: var(--ad-blue-soft); color: var(--ad-blue-dark); }
+.type-badge.booking { background: #fff3dc; color: var(--ad-amber); }
+
+.action-text,
+.schedule-info {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.action-text small,
+.schedule-info small {
+  display: block;
+  color: var(--ad-text-soft);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.schedule-time {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  background: var(--ad-blue-soft);
+  color: var(--ad-blue-dark);
+  font-weight: 600;
+  font-size: 0.8rem;
+  border-radius: 10px;
+}
+
+/* =========================
+   3. CRUD FORMS, TABLES & BUTTONS
+========================= */
+.crud-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.crud-field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #263954;
+}
+
+.crud-field .form-control,
+.crud-field .form-select,
+.crud-search .form-control {
+  min-height: 42px;
+  border-radius: 11px;
+  border-color: #dce6f5;
+  font-size: 0.92rem;
+}
+
+.crud-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.crud-btn,
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.crud-btn-primary,
+.btn-action {
+  background: var(--ad-blue);
+  color: #fff;
+}
+
+.crud-btn-primary:hover,
+.btn-action:hover {
+  background: var(--ad-blue-dark);
+  color: #fff;
+}
+
+.crud-btn-light,
+.btn-action.ghost {
+  background: #edf4ff;
+  color: #2458b7;
+}
+
+.crud-btn-edit {
+  background: #e6f6ef;
+  color: #14784e;
+}
+
+.crud-btn-delete {
+  background: #fff0ef;
+  color: #c53c38;
+}
+
+.crud-search {
+  display: flex;
+  gap: 8px;
+  width: min(100%, 420px);
+}
+
+.crud-table {
+  margin: 0;
+  color: var(--ad-text);
+  font-size: 0.9rem;
+}
+
+.crud-table thead th {
+  background: #f1f6ff;
+  color: #31496b;
+  font-size: 0.76rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+  padding: 13px;
+  border-bottom: 1px solid #e2ebf8;
+}
+
+.crud-table tbody td {
+  padding: 13px;
+  border-color: #edf2fa;
+  vertical-align: middle;
+}
+
+.crud-id {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: #edf4ff;
+  color: #2458b7;
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+
+.crud-status {
+  display: inline-block;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.crud-status.available,
+.crud-status.approved,
+.crud-status.completed,
+.crud-status.paid {
+  background: #e6f6ef;
+  color: #14784e;
+}
+
+.crud-status.pending,
+.crud-status.processing,
+.crud-status.shipped {
+  background: #fff3dc;
+  color: #b27200;
+}
+
+.crud-status.rejected,
+.crud-status.cancelled,
+.crud-status.adopted,
+.crud-status.unavailable {
+  background: #fde8e8;
+  color: #c53c38;
+}
+
+.crud-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   4. ADOPTION & ORDER DETAIL BOXES
+========================= */
+.adoption-detail {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+}
+
+.adoption-pet {
+  overflow: hidden;
+  border: 1px solid var(--ad-line);
+  border-radius: 16px;
+  background: #fff;
+  height: fit-content;
+}
+
+.adoption-pet img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  padding: 12px;
+  background: #f8fbff;
+}
+
+.adoption-pet-info {
+  padding: 18px;
+}
+
+.adoption-data {
+  padding: 20px;
+  border: 1px solid var(--ad-line);
+  border-radius: 16px;
+  background: #f8fbfe;
+}
+
+.adoption-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--ad-line);
+}
+
+.adoption-row:last-child {
+  border-bottom: 0;
+}
+
+.adoption-label {
+  color: var(--ad-text-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* =========================
+   5. RESPONSIVE
+========================= */
+@media (max-width: 1100px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dashboard-grid,
+  .adoption-detail {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .sb-sidebar {
+    position: fixed;
+    z-index: 1040;
+    left: 0;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+  .sb-sidebar.open {
+    transform: translateX(0);
+  }
+  .sb-overlay.show {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 39, 71, 0.45);
+    z-index: 1030;
+  }
+  .sb-menu-button {
+    display: block;
+  }
+  .admin-main {
+    padding: 20px 16px 40px;
+  }
+}
+
+/* Accessible Focus Ring & Reduced Motion Support (WCAG 2.2 AA) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #2f6fed !important;
+  outline-offset: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
